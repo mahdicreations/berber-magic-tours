@@ -153,4 +153,46 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Custom Itinerary Form Handler
+    const expeditionForm = document.getElementById('expeditionForm');
+    const successOverlay = document.getElementById('successOverlay');
+
+    if (expeditionForm && successOverlay) {
+        expeditionForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Gather form details
+            const formData = new FormData(expeditionForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const whatsapp = formData.get('whatsapp');
+            const duration = formData.get('duration');
+            const style = formData.get('style');
+            
+            const interests = [];
+            expeditionForm.querySelectorAll('input[name="interests"]:checked').forEach(checkbox => {
+                interests.push(checkbox.value);
+            });
+            
+            const notes = formData.get('notes');
+
+            console.log('Itinerary Request submitted:', { name, email, whatsapp, duration, style, interests, notes });
+
+            // Show success overlay
+            successOverlay.classList.add('active');
+        });
+    }
+
+    // Expose overlay close function globally
+    window.closeSuccessOverlay = function() {
+        const successOverlay = document.getElementById('successOverlay');
+        const expeditionForm = document.getElementById('expeditionForm');
+        if (successOverlay) {
+            successOverlay.classList.remove('active');
+        }
+        if (expeditionForm) {
+            expeditionForm.reset();
+        }
+    };
 });
