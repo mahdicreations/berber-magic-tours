@@ -241,7 +241,69 @@ function toggleTrekAccordion(btn) {
         content.style.maxHeight = content.scrollHeight + 'px';
         icon.className = 'fas fa-minus';
         circle.style.background = 'var(--primary)';
-        circle.style.color = '#ffffff';
     }
 }
+
+// TripAdvisor 7-Review Carousel Handler
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('taCarouselTrack');
+    const dots = document.querySelectorAll('.ta-dot');
+    const prevBtn = document.getElementById('taPrevBtn');
+    const nextBtn = document.getElementById('taNextBtn');
+    let currentIndex = 0;
+    const totalSlides = 7;
+    let autoPlayTimer = null;
+
+    if (!track) return;
+
+    window.goTaSlide = function(index) {
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+        currentIndex = index;
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach((dot, i) => {
+            if (i === currentIndex) {
+                dot.style.background = '#00AF87';
+                dot.style.borderColor = '#00AF87';
+                dot.classList.add('active');
+            } else {
+                dot.style.background = 'transparent';
+                dot.style.borderColor = '#CBD5E1';
+                dot.classList.remove('active');
+            }
+        });
+    };
+
+    if (prevBtn) {
+        prevBtn.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            goTaSlide(currentIndex - 1);
+        };
+    }
+    if (nextBtn) {
+        nextBtn.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            goTaSlide(currentIndex + 1);
+        };
+    }
+
+    function startAutoPlay() {
+        if (autoPlayTimer) clearInterval(autoPlayTimer);
+        autoPlayTimer = setInterval(() => {
+            goTaSlide(currentIndex + 1);
+        }, 6000);
+    }
+
+    startAutoPlay();
+
+    const carouselArea = document.querySelector('.ta-carousel-wrapper');
+    if (carouselArea) {
+        carouselArea.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
+        carouselArea.addEventListener('mouseleave', () => startAutoPlay());
+    }
+});
+
+
 
