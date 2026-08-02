@@ -525,7 +525,10 @@ img {
 }
 
 .slide-title {
-    font-size: 3rem;
+    font-family: 'Style Script', cursive;
+    font-weight: 400;
+    font-size: 4.5rem;
+    text-transform: none;
     color: var(--white);
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
@@ -567,7 +570,7 @@ img {
 }
 
 @media (min-width: 768px) {
-    .slide-title { font-size: 4rem; }
+    .slide-title { font-size: 6rem; }
     .slide-text { font-size: 1.4rem; }
 }
 
@@ -1292,6 +1295,177 @@ img {
 }
 
 /* ==========================================================================
+   FAQ & Travel Purpose Section
+   ========================================================================== */
+.faq-purpose {
+    padding: 100px 0;
+}
+
+.faq-purpose-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+@media (min-width: 992px) {
+    .faq-purpose-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.purpose-column, .faq-column {
+    width: 100%;
+}
+
+.purpose-column .section-title, .faq-column .section-title {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.purpose-text {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.purpose-highlight {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 35px;
+    font-family: var(--font-heading);
+}
+
+/* Team Showcase */
+.team-showcase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.member-img-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 3px solid var(--accent);
+    box-shadow: var(--shadow-sm);
+    aspect-ratio: 1 / 1;
+    transition: var(--transition);
+}
+
+@media (min-width: 480px) {
+    .member-img-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.team-member:hover .member-img-wrapper {
+    transform: scale(1.05);
+    border-color: var(--primary);
+    box-shadow: 0 4px 15px rgba(211, 97, 53, 0.2);
+}
+
+.team-member img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-member span {
+    font-weight: 600;
+    color: var(--secondary);
+    font-size: 0.95rem;
+}
+
+/* FAQ Container */
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background-color: var(--accent);
+    border-radius: var(--radius);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.faq-item.active {
+    background-color: var(--white);
+    border-color: rgba(211, 97, 53, 0.2);
+    box-shadow: var(--shadow-md);
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    background: none;
+    border: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--secondary);
+    font-family: var(--font-heading);
+    text-align: left;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.faq-question:focus {
+    outline: none;
+}
+
+.faq-question:hover {
+    color: var(--primary);
+}
+
+.faq-question i {
+    font-size: 0.85rem;
+    color: var(--primary);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-answer-inner {
+    padding: 0 24px 20px 24px;
+}
+
+.faq-answer p {
+    color: var(--text-light);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 0;
+    text-align: justify;
+}
+
+/* ==========================================================================
    Testimonials
    ========================================================================== */
 .testimonials-grid {
@@ -1640,7 +1814,1220 @@ img {
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 25px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
     color: rgba(255, 255, 255, 0.5);
     font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+    .footer-bottom {
+        flex-direction: row;
+    }
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-legal {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-legal a {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.footer-legal a:hover {
+    color: var(--primary);
+}
+/* ==========================================================================
+   Tour Details Page Styles
+   ========================================================================== */
+
+.page-header {
+    padding: 120px 0 80px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin-top: 80px; /* Offset for fixed header */
+}
+
+.page-header-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+}
+
+.breadcrumb a {
+    color: var(--light-color);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+.breadcrumb a:hover {
+    color: var(--primary-color);
+}
+.breadcrumb span {
+    margin: 0 10px;
+}
+
+.tour-details-section {
+    padding: 80px 0;
+}
+
+.tour-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.tour-main-content {
+    flex: 1 1 65%;
+    min-width: 300px;
+}
+
+.tour-sidebar {
+    flex: 1 1 30%;
+    min-width: 300px;
+}
+
+.tour-content-block {
+    margin-bottom: 30px;
+}
+
+.tour-content-block h2, .tour-content-block h3 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.itinerary-timeline {
+    position: relative;
+    border-left: 2px dashed var(--primary-color);
+    padding-left: 30px;
+    margin-left: 15px;
+}
+
+.itinerary-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.itinerary-item:last-child {
+    margin-bottom: 0;
+}
+
+.itinerary-day {
+    position: absolute;
+    left: -70px;
+    top: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.itinerary-item::before {
+    content: '';
+    position: absolute;
+    left: -37px;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid var(--primary-color);
+}
+
+.itinerary-item h4 {
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.tour-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .tour-info-grid {
+        grid-template-columns: 1fr;
+    }
+    .tour-layout {
+        flex-direction: column;
+    }
+}
+
+.check-list, .cross-list, .bring-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.check-list li, .cross-list li, .bring-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+}
+
+.check-list li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: #28a745;
+}
+
+.cross-list li::before {
+    content: '\f00d';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: #dc3545;
+}
+
+.bring-list li {
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bring-list li i {
+    color: var(--primary-color);
+    width: 20px;
+    text-align: center;
+}
+
+.sticky-sidebar {
+    position: sticky;
+    top: 100px;
+}
+
+.booking-form-widget .widget-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--secondary-color);
+}
+
+.booking-form-widget .form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Outfit', sans-serif;
+    background: #f9f9f9;
+}
+
+.booking-form-widget .form-control:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    background: white;
+}
+
+.booking-form-widget label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-note {
+    color: #777;
+    font-size: 0.9rem;
+}
+/* ==========================================================================
+   Premium Tour Details & Gallery Styles
+   ========================================================================== */
+
+/* Gallery Grid */
+.tour-gallery-wrapper {
+    margin-bottom: 3rem;
+}
+.tour-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    gap: 15px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+.gallery-item.item-large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+.gallery-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+.gallery-overlay i {
+    color: white;
+    font-size: 2rem;
+    transform: scale(0.5);
+    transition: var(--transition);
+}
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+.gallery-item:hover .gallery-overlay i {
+    transform: scale(1);
+}
+
+@media (max-width: 768px) {
+    .tour-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+    .gallery-item.item-large {
+        grid-column: span 2;
+        grid-row: span 1;
+        height: 250px;
+    }
+    .gallery-item:not(.item-large) {
+        height: 150px;
+    }
+}
+
+/* Premium Cards */
+.premium-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+.premium-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+.card-header-accent {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--primary), #ff8a5c);
+}
+.premium-card h2, .premium-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-heading);
+    color: var(--secondary);
+}
+
+/* Timeline Premium */
+.itinerary-timeline-premium {
+    position: relative;
+    margin-top: 2rem;
+}
+.itinerary-timeline-premium::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 24px;
+    width: 2px;
+    background: rgba(211, 97, 53, 0.2);
+}
+.timeline-item {
+    position: relative;
+    padding-left: 65px;
+    margin-bottom: 2.5rem;
+}
+.timeline-marker {
+    position: absolute;
+    left: 17px;
+    top: 5px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 4px solid var(--primary);
+    box-shadow: 0 0 0 4px rgba(211, 97, 53, 0.1);
+    z-index: 2;
+}
+.timeline-content {
+    background: #fdfaf6;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+.day-badge {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+.timeline-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-family: var(--font-body);
+}
+.day-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+.day-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.day-meta i {
+    color: var(--primary);
+}
+
+/* Premium Lists */
+.premium-list {
+    list-style: none; padding: 0; margin: 0;
+}
+.premium-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #444;
+}
+.premium-list.check li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #25D366;
+    margin-top: 3px;
+}
+.premium-list.cross li::before {
+    content: '\f00d';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #dc3545;
+    margin-top: 3px;
+}
+
+/* Packing Grid */
+.packing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+.packing-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    background: #fdfaf6;
+    border-radius: 8px;
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+.packing-item:hover {
+    background: white;
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+    border-color: rgba(211, 97, 53, 0.2);
+}
+.packing-item i {
+    color: var(--primary);
+    font-size: 1.2rem;
+    width: 24px; text-align: center;
+}
+.packing-item span {
+    font-weight: 500;
+    color: var(--secondary);
+    font-size: 0.95rem;
+}
+
+/* Premium Booking Widget */
+.premium-booking-widget {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+.widget-header {
+    background: linear-gradient(135deg, var(--secondary), #2a211b);
+    padding: 1.5rem;
+    color: white;
+    text-align: center;
+}
+.price-tag {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    margin-bottom: 5px;
+}
+.price-unit {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+.widget-body {
+    padding: 2rem;
+}
+.widget-body .form-control {
+    background: #fdfaf6;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 12px 15px;
+}
+.widget-body .form-control:focus {
+    background: white;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(211, 97, 53, 0.1);
+}
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+/* ==========================================================================
+   Redesigned Tour Details (Softer, Earthy, Elegant)
+   ========================================================================== */
+
+/* Overrides for previous premium cards */
+.tour-details-section {
+    background-color: #fcf9f5 !important;
+}
+
+.premium-card {
+    background: transparent !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin-bottom: 3.5rem;
+}
+
+.premium-card:hover {
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.card-header-accent {
+    display: none !important;
+}
+
+.premium-card h2, .premium-card h3 {
+    font-family: var(--font-heading) !important;
+    color: var(--secondary) !important;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem !important;
+    border-bottom: 2px solid rgba(211, 97, 53, 0.2);
+    padding-bottom: 15px;
+}
+
+.premium-card p.lead-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+/* Elegant Timeline */
+.itinerary-timeline-premium {
+    margin-top: 2.5rem !important;
+}
+
+.itinerary-timeline-premium::before {
+    background: rgba(211, 97, 53, 0.4) !important;
+    width: 1px !important;
+    left: 20px !important;
+}
+
+.timeline-item {
+    padding-left: 55px !important;
+    margin-bottom: 3rem !important;
+}
+
+.timeline-marker {
+    left: 14px !important;
+    width: 14px !important; 
+    height: 14px !important;
+    background: var(--primary) !important;
+    border: 3px solid #fcf9f5 !important;
+    box-shadow: 0 0 0 4px rgba(211, 97, 53, 0.2) !important;
+}
+
+.timeline-content {
+    background: white !important;
+    padding: 2rem !important;
+    border-radius: 12px !important;
+    border: none !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04) !important;
+}
+
+.timeline-content h3 {
+    font-size: 1.4rem !important;
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+.day-badge {
+    background: var(--secondary) !important;
+    color: white !important;
+    padding: 5px 15px !important;
+    font-size: 0.85rem !important;
+    border-radius: 4px !important;
+}
+
+/* Beautiful Included / Excluded Grid */
+.tour-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.included-card, .excluded-card {
+    background: white !important;
+    padding: 2.5rem !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04) !important;
+}
+
+.included-card h3, .excluded-card h3 {
+    border-bottom: none !important;
+    font-size: 1.5rem !important;
+}
+
+.premium-list li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+    color: #666 !important;
+}
+.premium-list li:last-child {
+    border-bottom: none;
+}
+
+/* Soft Packing Grid */
+.packing-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.packing-item {
+    background: white !important;
+    border: 1px solid #eaeaea !important;
+    border-radius: 50px !important;
+    padding: 10px 20px !important;
+}
+.packing-item:hover {
+    background: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+}
+.packing-item:hover i, .packing-item:hover span {
+    color: white !important;
+}
+
+/* Stunning Booking Widget */
+.tour-sidebar {
+    position: relative;
+}
+.premium-booking-widget {
+    background: white !important;
+    border-radius: 16px !important;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08) !important;
+    border: 1px solid rgba(0,0,0,0.03) !important;
+    padding: 10px !important;
+}
+
+.widget-body {
+    padding: 2.5rem !important;
+    background: #fdfdfd;
+    border-radius: 12px;
+}
+
+.widget-body h3 {
+    font-family: var(--font-heading);
+    color: var(--secondary);
+    font-size: 1.8rem;
+}
+
+.widget-body .form-control {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid #eee !important;
+    border-radius: 0 !important;
+    padding: 12px 0 !important;
+    box-shadow: none !important;
+}
+.widget-body .form-control:focus {
+    border-bottom-color: var(--primary) !important;
+}
+
+.submit-btn {
+    background: var(--secondary) !important;
+    border-radius: 50px !important;
+    padding: 15px !important;
+    font-size: 1.1rem !important;
+    margin-top: 20px;
+    transition: all 0.3s ease !important;
+}
+.submit-btn:hover {
+    background: var(--primary) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 20px rgba(211,97,53,0.3) !important;
+}
+
+/* Dynamic Photo Gallery */
+.tour-gallery-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-rows: 250px 250px !important;
+    gap: 10px !important;
+    border-radius: 16px !important;
+}
+.gallery-item {
+    border-radius: 8px !important;
+}
+.gallery-item.item-large {
+    grid-column: span 2 !important;
+    grid-row: span 2 !important;
+}
+
+@media (max-width: 992px) {
+    .tour-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ==========================================================================
+   Form & Gallery Refinements
+   ========================================================================== */
+
+/* 1. Smaller Gallery */
+.tour-gallery-grid {
+    grid-template-rows: 180px 180px !important;
+}
+@media (max-width: 768px) {
+    .tour-gallery-grid {
+        grid-template-rows: auto !important;
+    }
+}
+
+/* 2. Stunning Booking Form Redesign */
+.premium-booking-widget {
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid rgba(211, 97, 53, 0.15) !important;
+    padding: 0 !important;
+}
+
+.widget-body {
+    padding: 2.5rem !important;
+    background: transparent !important;
+}
+
+.widget-title {
+    font-size: 2rem !important;
+    color: var(--primary) !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 700;
+}
+
+.widget-subtitle {
+    font-size: 0.95rem !important;
+    color: #666 !important;
+    margin-bottom: 1.8rem !important;
+}
+
+/* Clear, distinct form fields */
+.widget-body .form-group {
+    margin-bottom: 1.2rem !important;
+}
+
+.widget-body label {
+    font-weight: 600 !important;
+    color: var(--secondary) !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 6px !important;
+    display: inline-block;
+}
+
+.widget-body .form-control {
+    background: #f8f9fa !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 14px 18px !important;
+    color: #333 !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.widget-body .form-control:focus {
+    background: #ffffff !important;
+    border: 1px solid var(--primary) !important;
+    box-shadow: 0 0 0 4px rgba(211, 97, 53, 0.1) !important;
+}
+
+.widget-body textarea.form-control {
+    min-height: 100px;
+}
+
+/* Beautiful Submit Button */
+.submit-btn {
+    background: var(--primary) !important;
+    color: white !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    margin-top: 15px !important;
+    letter-spacing: 0.5px !important;
+    text-transform: none !important;
+    box-shadow: 0 8px 20px rgba(211, 97, 53, 0.25) !important;
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-btn:hover {
+    background: var(--secondary) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.form-note {
+    font-size: 0.85rem;
+}
+/* ==========================================================================
+   Photo Strip Gallery (replaces old grid)
+   ========================================================================== */
+.photo-strip-wrapper {
+    position: relative;
+}
+
+.photo-strip-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 8px;
+    cursor: grab;
+}
+.photo-strip-scroll::-webkit-scrollbar { display: none; }
+.photo-strip-scroll:active { cursor: grabbing; }
+
+.photo-strip-item {
+    flex: 0 0 auto;
+    width: 320px;
+    height: 220px;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    scroll-snap-align: start;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.photo-strip-item:first-child { width: 480px; }
+.photo-strip-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.photo-strip-item:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(0,0,0,0.18); }
+.photo-strip-item:hover img { transform: scale(1.06); }
+
+.photo-strip-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 60%);
+    display: flex; align-items: flex-end; justify-content: flex-end;
+    padding: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.photo-strip-item:hover .photo-strip-overlay { opacity: 1; }
+.photo-strip-overlay i { color: white; font-size: 1.2rem; background: rgba(255,255,255,0.2); padding: 8px; border-radius: 50%; backdrop-filter: blur(4px); }
+
+.photo-strip-hint {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #aaa;
+    letter-spacing: 0.3px;
+}
+@media (min-width: 768px) { .photo-strip-hint { display: none; } }
+
+/* ==========================================================================
+   Full Mobile Overhaul for Tour Page
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+    /* Page Hero */
+    .page-header {
+        padding: 80px 0 50px !important;
+        margin-top: 60px !important;
+    }
+    .page-title {
+        font-size: 1.8rem !important;
+        line-height: 1.3;
+    }
+
+    /* Photo strip */
+    .photo-strip-item { width: 260px !important; height: 175px !important; }
+    .photo-strip-item:first-child { width: 300px !important; }
+
+    /* Layout: stack sidebar below content */
+    .tour-layout {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+    .tour-main-content, .tour-sidebar {
+        flex: 1 1 100% !important;
+        min-width: 0 !important;
+        width: 100% !important;
+    }
+
+    /* Sticky OFF on mobile */
+    .sticky-sidebar {
+        position: relative !important;
+        top: auto !important;
+    }
+
+    /* Cards readable on mobile */
+    .premium-card h2 {
+        font-size: 1.5rem !important;
+    }
+    .premium-card h3 {
+        font-size: 1.2rem !important;
+    }
+    .lead-text {
+        font-size: 1rem !important;
+    }
+
+    /* Timeline compact */
+    .timeline-item {
+        padding-left: 45px !important;
+        margin-bottom: 2rem !important;
+    }
+    .timeline-content {
+        padding: 1.2rem !important;
+    }
+    .timeline-content h3 {
+        font-size: 1.05rem !important;
+    }
+    .day-meta {
+        flex-direction: column !important;
+        gap: 6px !important;
+    }
+
+    /* Included/Excluded stacks */
+    .tour-info-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .included-card, .excluded-card {
+        padding: 1.5rem !important;
+    }
+
+    /* Packing list: 2 columns on mobile */
+    .packing-grid {
+        gap: 8px !important;
+    }
+    .packing-item {
+        padding: 8px 14px !important;
+        font-size: 0.88rem !important;
+    }
+
+    /* Booking form full width */
+    .premium-booking-widget {
+        border-radius: 14px !important;
+    }
+    .widget-body {
+        padding: 1.5rem !important;
+    }
+    .widget-title {
+        font-size: 1.5rem !important;
+    }
+    .form-row.d-flex {
+        flex-direction: column !important;
+        gap: 0 !important;
+    }
+
+    /* Tour section padding */
+    .tour-details-section {
+        padding: 40px 0 !important;
+    }
+}
+/* ==========================================================================
+   Premium Included / Not Included Section
+   ========================================================================== */
+
+.inc-exc-section {
+    margin-top: 3rem;
+}
+
+.inc-exc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+/* Cards */
+.inc-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.inc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+}
+
+/* Card Header Banner */
+.inc-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 22px 25px;
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border-bottom: 1px solid rgba(34, 197, 94, 0.15);
+}
+.exc-card .inc-card-header {
+    background: linear-gradient(135deg, #fff1f2, #ffe4e6);
+    border-bottom: 1px solid rgba(239, 68, 68, 0.15);
+}
+
+.inc-card-header h3 {
+    margin: 0 !important;
+    border: none !important;
+    padding: 0 !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #15803d !important;
+}
+.exc-card .inc-card-header h3 {
+    color: #b91c1c !important;
+}
+
+/* Icon Circle */
+.inc-icon-circle {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+.inc-icon-circle.inc-green {
+    background: #22c55e;
+    color: white;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.35);
+}
+.inc-icon-circle.inc-red {
+    background: #ef4444;
+    color: white;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
+}
+
+/* List Items */
+.inc-list {
+    list-style: none;
+    padding: 10px 25px 20px;
+    margin: 0;
+}
+.inc-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 13px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+.inc-list li:last-child { border-bottom: none; }
+
+.inc-list li strong {
+    display: block;
+    font-size: 0.95rem;
+    color: #1e293b;
+    line-height: 1.3;
+}
+.inc-list li small {
+    color: #94a3b8;
+    font-size: 0.82rem;
+    line-height: 1.4;
+}
+
+/* Bullet icons */
+.inc-bullet {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem;
+}
+.inc-bullet.green {
+    background: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+}
+.inc-bullet.red {
+    background: #fff1f2;
+    color: #dc2626;
+    border: 1px solid #fecdd3;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .inc-exc-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+/* ==========================================================================
+   Simple Compact Included / Not Included
+   ========================================================================== */
+.simple-inc-section { margin-top: 2.5rem; }
+
+.simple-inc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.simple-inc-card {
+    background: white;
+    border-radius: 12px;
+    padding: 22px 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.simple-inc-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.simple-inc-title.green { color: #16a34a; }
+.simple-inc-title.red   { color: #dc2626; }
+
+.simple-inc-list {
+    list-style: none;
+    padding: 0; margin: 0;
+}
+.simple-inc-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0;
+    font-size: 0.93rem;
+    color: #444;
+    border-bottom: 1px dashed #f0f0f0;
+}
+.simple-inc-list li:last-child { border-bottom: none; }
+.simple-inc-list li i.fa-check { color: #22c55e; font-size: 0.8rem; flex-shrink: 0; }
+.simple-inc-list li i.fa-times  { color: #ef4444; font-size: 0.8rem; flex-shrink: 0; }
+
+@media (max-width: 768px) {
+    .simple-inc-grid { grid-template-columns: 1fr; }
+}
+/* ==========================================================================
+   Tour Map Section
+   ========================================================================== */
+.tour-map-section h3 {
+    font-family: var(--font-heading);
+    color: var(--secondary);
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid rgba(211, 97, 53, 0.2);
+    padding-bottom: 12px;
+}
+
+.tour-map-wrapper {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+}
+
+.map-info-strip {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.map-info-strip span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.map-info-strip i {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .tour-map-wrapper iframe { height: 260px !important; }
+    .map-info-strip { gap: 12px; }
+    .map-info-strip span { font-size: 0.82rem; }
 }
