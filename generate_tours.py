@@ -307,12 +307,21 @@ def generate_html(tour_info, tour_images, template_content, tour_folder_name):
 
     hero_bg_src = copied_images[0][1]
 
-    # 2. Adjust relative asset links for output file in output_tours/
+    # 2. Adjust relative asset and page links for output files in tours/
     html = template_content
-    # Update CSS, JS, logo, and home page links
     html = re.sub(r'href=["\']assets/', 'href="../assets/', html)
     html = re.sub(r'src=["\']assets/', 'src="../assets/', html)
     html = re.sub(r'href=["\']index\.html', 'href="../index.html', html)
+    # Rewrite root category page links (e.g. href="climb-mount-toubkal.html" -> href="../climb-mount-toubkal.html")
+    cat_pages = [
+        "marrakech-day-trips.html", "trek-and-hike.html", "climb-mount-toubkal.html",
+        "berber-village-treks.html", "combine-toubkal-and-villages.html", "biking-in-morocco.html",
+        "combine-atlas-mountains-and-desert.html", "combine-berber-villages-and-sahara.html",
+        "combine-toubkal-and-sahara.html", "sahara-desert-tours.html", "tours-from-marrakech.html",
+        "tours-from-casablanca.html", "tours-from-fes.html", "morocco-tours.html"
+    ]
+    for cp in cat_pages:
+        html = html.replace(f'href="{cp}"', f'href="../{cp}"')
 
     # 3. Update Title & Meta description
     html = re.sub(r'<title>.*?</title>', f'<title>{escape(title)} | Berber Magic Tours</title>', html, flags=re.DOTALL)

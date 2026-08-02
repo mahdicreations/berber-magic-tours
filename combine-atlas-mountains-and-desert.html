@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combine Atlas Mountains &amp; Desert | Berber Magic Tours</title>
+    <meta name="description" content="Combine mountain trekking in the High Atlas with camel rides and starry night luxury desert camps in Erg Chebbi, Merzouga.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Style+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css" />
+    <style>
+        /* Force white header for category page header */
+        #header.header {
+            background: white !important;
+            background-image: none !important;
+            padding: 10px 0 !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
+        }
+        #header.header .top-bar { 
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important; 
+        }
+        #header.header .top-bar-left a, 
+        #header.header .top-bar-right span,
+        #header.header .top-bar-socials a {
+            color: var(--secondary) !important;
+        }
+        #header.header .top-bar-left a:hover,
+        #header.header .top-bar-socials a:hover {
+            color: var(--primary) !important;
+        }
+        #header.header .nav-list > li > a { color: var(--secondary) !important; }
+        #header.header .nav-list > li > a:hover, #header.header .nav-list > li > a.active { color: var(--primary) !important; }
+        #header.header .header-flags { border-right: 1px solid rgba(0, 0, 0, 0.1) !important; }
+        #header.header .mobile-menu-btn { color: var(--secondary) !important; }
+
+        .category-hero {
+            background-image: url('tours/images/4days-berber-villages-toubkal/Toubkal-Berber-villages.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 120px 0 80px;
+            color: white;
+            text-align: center;
+        }
+        .category-hero-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.85) 100%);
+        }
+        .tours-grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .tour-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .tour-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        .tour-card-image {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .tour-card-badge {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(0,0,0,0.75);
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+        .tour-card-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .tour-card-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.88rem;
+            color: #666;
+        }
+        .tour-card-title {
+            font-size: 1.35rem;
+            color: var(--secondary);
+            font-family: var(--font-heading);
+            line-height: 1.3;
+        }
+        .tour-card-text {
+            font-size: 0.95rem;
+            color: #555;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+        .btn-sm {
+            padding: 10px 22px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header" class="header">
+        <div class="top-bar">
+            <div class="container top-bar-container">
+                <div class="top-bar-left">
+                    <a href="https://wa.me/212653274190" target="_blank"><i class="fab fa-whatsapp"></i> +212 653 274 190</a>
+                    <a href="mailto:contact@berber-magic-tours.com"><i class="far fa-envelope"></i> contact@berber-magic-tours.com</a>
+                </div>
+                <div class="top-bar-right">
+                    <span><i class="fas fa-map-marker-alt"></i> Douar Imlil, Marrakech</span>
+                    <div class="top-bar-socials">
+                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html"><img src="assets/images/logo.png" alt="Berber Magic Tours"></a>
+            </div>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="marrakech-day-trips.html" class="">Marrakech Day Trips</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="trek-and-hike.html" class="">Trek & Hike <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="climb-mount-toubkal.html">Climb Mount Toubkal</a></li>
+                            <li><a href="berber-village-treks.html">Berber Village Treks</a></li>
+                            <li><a href="combine-toubkal-and-villages.html">Combine Toubkal & Villages</a></li>
+                            <li><a href="biking-in-morocco.html">Biking in Morocco</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="combine-atlas-mountains-and-desert.html" class="active">Combine Atlas Mountains & Desert <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="combine-berber-villages-and-sahara.html">Combine Berber Villages & Sahara</a></li>
+                            <li><a href="combine-toubkal-and-sahara.html">Combine Toubkal & Sahara</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="">Other Tours <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a href="sahara-desert-tours.html">Sahara Desert Tours <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="tours-from-marrakech.html">Tours from Marrakech</a></li>
+                                    <li><a href="tours-from-casablanca.html">Tours from Casablanca</a></li>
+                                    <li><a href="tours-from-fes.html">Tours from Fes</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="morocco-tours.html">Morocco Tours</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="header-flags">
+                    <span class="fi fi-gb"></span>
+                    <span class="fi fi-fr"></span>
+                    <span class="fi fi-es"></span>
+                </div>
+                <a href="https://wa.me/212653274190" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Book Now</a>
+                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <img src="assets/images/logo.png" alt="Logo" class="mobile-logo">
+            <button class="close-menu-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="mobile-nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="marrakech-day-trips.html">Marrakech Day Trips</a></li>
+            <li><a href="trek-and-hike.html">Trek & Hike</a></li>
+            <li><a href="climb-mount-toubkal.html">- Climb Mount Toubkal</a></li>
+            <li><a href="berber-village-treks.html">- Berber Village Treks</a></li>
+            <li><a href="combine-toubkal-and-villages.html">- Combine Toubkal & Villages</a></li>
+            <li><a href="biking-in-morocco.html">- Biking in Morocco</a></li>
+            <li><a href="combine-atlas-mountains-and-desert.html">Combine Atlas Mountains & Desert</a></li>
+            <li><a href="combine-berber-villages-and-sahara.html">- Combine Berber Villages & Sahara</a></li>
+            <li><a href="combine-toubkal-and-sahara.html">- Combine Toubkal & Sahara</a></li>
+            <li><a href="sahara-desert-tours.html">Sahara Desert Tours</a></li>
+            <li><a href="tours-from-marrakech.html">-- Tours from Marrakech</a></li>
+            <li><a href="tours-from-casablanca.html">-- Tours from Casablanca</a></li>
+            <li><a href="tours-from-fes.html">-- Tours from Fes</a></li>
+            <li><a href="morocco-tours.html">Morocco Tours</a></li>
+        </ul>
+        <a href="https://wa.me/212653274190" class="btn btn-whatsapp mobile-btn"><i class="fab fa-whatsapp"></i> Book Now</a>
+    </div>
+
+    <!-- Category Hero Section -->
+    <section class="category-hero">
+        <div class="category-hero-overlay"></div>
+        <div class="container relative z-10">
+            <h1 class="section-title text-white">Combine Atlas Mountains &amp; Desert</h1>
+            <p class="subtitle text-white mb-3" style="color: var(--primary);">From High Peaks to Sahara Sand Dunes</p>
+            <div class="breadcrumb text-white justify-content-center">
+                <a href="index.html" class="text-white">Home</a> <span>/</span> Combine Atlas Mountains &amp; Desert
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour Grid Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header text-center" style="max-width: 780px; margin: 0 auto 40px;">
+                <p class="lead-text">Combine mountain trekking in the High Atlas with camel rides and starry night luxury desert camps in Erg Chebbi, Merzouga.</p>
+                <div class="card-header-accent" style="margin: 20px auto 0; width: 60px;"></div>
+            </div>
+
+            <div class="tours-grid-container">
+                
+                <!-- Tour Card: 4days Berber villages &amp; Toubkal -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/4days-berber-villages-toubkal/Toubkal-Berber-villages.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas &amp; Sahara</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> Toubkal</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 4 days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">4days Berber villages &amp; Toubkal</h3>
+                        <p class="tour-card-text mb-4">Embark on an unforgettable adventure for 4 days with Berber Magic Tours. Discover authentic Berber villages, stunning mountain landscapes, a...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/4days-berber-villages-toubkal.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card: 5days Berber villages &amp; Toubkal -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/5days-berber-villages-toubkal/IMG-20190201-WA0144.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas &amp; Sahara</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> Toubkal</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 5Days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">5days Berber villages &amp; Toubkal</h3>
+                        <p class="tour-card-text mb-4">Embark on an unforgettable adventure for 5Days with Berber Magic Tours. Discover authentic Berber villages, stunning mountain landscapes, an...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/5days-berber-villages-toubkal.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card: 6 Days Berber villages &amp; Toubkal -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/6-days-berber-villages-toubkal/3days-Toubkal-trek.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas &amp; Sahara</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> Toubkal</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 6 days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">6 Days Berber villages &amp; Toubkal</h3>
+                        <p class="tour-card-text mb-4">Embark on an unforgettable adventure for 6 days with Berber Magic Tours. Discover authentic Berber villages, stunning mountain landscapes, a...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/6-days-berber-villages-toubkal.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card: TOUBKAL SUMMIT via LAKE IFNI 6 DAYS -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/toubkal-summit-via-lake-ifni-6-days/6-day-atlas-mountain-trek-scaled.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas &amp; Sahara</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> Toubkal</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 6Days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">TOUBKAL SUMMIT via LAKE IFNI 6 DAYS</h3>
+                        <p class="tour-card-text mb-4">The Toubkal Summit trek via Lake Ifni comprises 6 days/nights hiking through the region surrounding and leading up to Jebel Toubkal. This jo...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/toubkal-summit-via-lake-ifni-6-days.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card: 5days Berber villages &amp; desert -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/5days-berber-villagessahara/Atlas-valleys-treks.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas Mountains &amp; Desert</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> Combine Atlas &amp;amp; Sahara</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 5 days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">5days Berber villages &amp; desert</h3>
+                        <p class="tour-card-text mb-4">Embark on an unforgettable adventure for 5 days with Berber Magic Tours. Discover authentic Berber villages, stunning mountain landscapes, a...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/5days-berber-villagessahara.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card: 5 days Mount Toubkal &amp; desert -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/5days-toubkal-sahara/IMG20170716101719.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas Mountains &amp; Desert</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> Combine Atlas &amp;amp; Sahara</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 5Days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">5 days Mount Toubkal &amp; desert</h3>
+                        <p class="tour-card-text mb-4">This tour is fast-paced, combining the ascent of Toubkal with the serenity of the Sahara. It gives the traveler a taste of two distinctive r...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/5days-toubkal-sahara.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card: 6 days Berber villages &amp; desert -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/6days-berber-villagessahara/Desertatlasmountains-scaled.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas Mountains &amp; Desert</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> Combine Atlas &amp;amp; Sahara</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 6 days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">6 days Berber villages &amp; desert</h3>
+                        <p class="tour-card-text mb-4">A great combination tour starting with a moderately paced trek through the Imlil Valley region and ending with three days exploring the Saha...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/6days-berber-villagessahara.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card: 6days Berber villages&amp;Sahara (opt 2) -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/6days-berber-villagessahara-opt-2/Discover-Atlas-Mountains.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas Mountains &amp; Desert</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> High Atlas, Morocco</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 6Days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">6days Berber villages&amp;Sahara (opt 2)</h3>
+                        <p class="tour-card-text mb-4">A great combination tour starting with a moderately paced trek through the Imlil Valley region and ending with three days exploring the Saha...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/6days-berber-villagessahara-opt-2.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card: 6 days Mount Toubkal &amp; desert -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/6days-toubkal-sahara/Climb-Toubkal-1.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas Mountains &amp; Desert</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> Combine Atlas &amp;amp; Sahara</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 6Days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">6 days Mount Toubkal &amp; desert</h3>
+                        <p class="tour-card-text mb-4">This six-day excursion takes the traveler through the Atlas region to summit Toubkal, as well as a tour through the dunes of the Sahara. The...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/6days-toubkal-sahara.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card: 6 days Mt Toubkal &amp; desert (opt2) -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/6days-toubkal-sahara-opt-2/Dersert-trekking.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas Mountains &amp; Desert</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> High Atlas, Morocco</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 6Days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">6 days Mt Toubkal &amp; desert (opt2)</h3>
+                        <p class="tour-card-text mb-4">The two excursions begin start at a challenging pace and are best for those able to push themselves for the first couple of days. The Toubka...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/6days-toubkal-sahara-opt-2.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card: 7days Berber villages &amp; desert -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/7days-berber-villagessahara/Day-excursion-to-Imlil.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas Mountains &amp; Desert</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> High Atlas, Morocco</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 7 days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">7days Berber villages &amp; desert</h3>
+                        <p class="tour-card-text mb-4">Embark on an unforgettable adventure for 7 days with Berber Magic Tours. Discover authentic Berber villages, stunning mountain landscapes, a...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/7days-berber-villagessahara.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card: 5days Berber villages &amp; desert -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/5days-berber-villagessahara/Atlas-valleys-treks.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas Mountains &amp; Desert</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> Combine Atlas &amp;amp; Sahara</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 5 days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">5days Berber villages &amp; desert</h3>
+                        <p class="tour-card-text mb-4">Embark on an unforgettable adventure for 5 days with Berber Magic Tours. Discover authentic Berber villages, stunning mountain landscapes, a...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/5days-berber-villagessahara.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card: 6 days Berber villages &amp; desert -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/6days-berber-villagessahara/Desertatlasmountains-scaled.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas Mountains &amp; Desert</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> Combine Atlas &amp;amp; Sahara</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 6 days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">6 days Berber villages &amp; desert</h3>
+                        <p class="tour-card-text mb-4">A great combination tour starting with a moderately paced trek through the Imlil Valley region and ending with three days exploring the Saha...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/6days-berber-villagessahara.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card: 6days Berber villages&amp;Sahara (opt 2) -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/6days-berber-villagessahara-opt-2/Discover-Atlas-Mountains.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas Mountains &amp; Desert</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> High Atlas, Morocco</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 6Days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">6days Berber villages&amp;Sahara (opt 2)</h3>
+                        <p class="tour-card-text mb-4">A great combination tour starting with a moderately paced trek through the Imlil Valley region and ending with three days exploring the Saha...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/6days-berber-villagessahara-opt-2.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card: 7days Berber villages &amp; desert -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/7days-berber-villagessahara/Day-excursion-to-Imlil.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas Mountains &amp; Desert</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> High Atlas, Morocco</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 7 days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">7days Berber villages &amp; desert</h3>
+                        <p class="tour-card-text mb-4">Embark on an unforgettable adventure for 7 days with Berber Magic Tours. Discover authentic Berber villages, stunning mountain landscapes, a...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/7days-berber-villagessahara.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card: 5 days Mount Toubkal &amp; desert -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/5days-toubkal-sahara/IMG20170716101719.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas Mountains &amp; Desert</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> Combine Atlas &amp;amp; Sahara</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 5Days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">5 days Mount Toubkal &amp; desert</h3>
+                        <p class="tour-card-text mb-4">This tour is fast-paced, combining the ascent of Toubkal with the serenity of the Sahara. It gives the traveler a taste of two distinctive r...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/5days-toubkal-sahara.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card: 6 days Mount Toubkal &amp; desert -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/6days-toubkal-sahara/Climb-Toubkal-1.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas Mountains &amp; Desert</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> Combine Atlas &amp;amp; Sahara</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 6Days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">6 days Mount Toubkal &amp; desert</h3>
+                        <p class="tour-card-text mb-4">This six-day excursion takes the traveler through the Atlas region to summit Toubkal, as well as a tour through the dunes of the Sahara. The...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/6days-toubkal-sahara.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card: 6 days Mt Toubkal &amp; desert (opt2) -->
+                <div class="tour-card-premium">
+                    <div class="tour-card-image" style="background-image: url('tours/images/6days-toubkal-sahara-opt-2/Dersert-trekking.jpg');">
+                        <div class="tour-card-overlay"></div>
+                        <div class="tour-cat-badge">Combine Atlas Mountains &amp; Desert</div>
+                    </div>
+                    <div class="tour-card-body">
+                        <div class="tour-card-meta mb-2">
+                            <span><i class="fas fa-map-marker-alt text-primary"></i> High Atlas, Morocco</span>
+                            <span class="duration-pill"><i class="far fa-clock"></i> 6Days</span>
+                        </div>
+                        <h3 class="tour-card-title mb-3">6 days Mt Toubkal &amp; desert (opt2)</h3>
+                        <p class="tour-card-text mb-4">The two excursions begin start at a challenging pace and are best for those able to push themselves for the first couple of days. The Toubka...</p>
+                        <div class="tour-card-footer">
+                            <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
+                            <a href="tours/6days-toubkal-sahara-opt-2.html" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-secondary text-white">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <img src="assets/images/logo.png" alt="Berber Magic Tours" class="footer-logo mb-3" style="height: 50px;">
+                <p>Authentic, immersive, and unforgettable trekking and tour experiences across the Atlas Mountains and Sahara Desert in Morocco.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="marrakech-day-trips.html">Marrakech Day Trips</a></li>
+                    <li><a href="trek-and-hike.html">Trek & Hike</a></li>
+                    <li><a href="sahara-desert-tours.html">Sahara Desert Tours</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt text-primary"></i> Douar Imlil, High Atlas, Morocco</p>
+                <p><i class="fab fa-whatsapp text-primary"></i> +212 653 274 190</p>
+                <p><i class="far fa-envelope text-primary"></i> contact@berber-magic-tours.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center py-3" style="border-top: 1px solid rgba(255,255,255,0.1);">
+            <div class="container">
+                <p>&copy; 2026 Berber Magic Tours. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
