@@ -223,3 +223,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Global Trek Accordion Handler
+function toggleTrekAccordion(btn) {
+    const item = btn.closest('.trek-accordion-item');
+    const content = item.querySelector('.accordion-content');
+    const icon = item.querySelector('.accordion-icon-circle i');
+    const circle = item.querySelector('.accordion-icon-circle');
+    const isExpanded = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+    if (isExpanded) {
+        content.style.maxHeight = '0px';
+        icon.className = 'fas fa-plus';
+        circle.style.background = '#F1F5F9';
+        circle.style.color = 'var(--secondary)';
+    } else {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        icon.className = 'fas fa-minus';
+        circle.style.background = 'var(--primary)';
+        circle.style.color = '#ffffff';
+    }
+}
+
