@@ -6,7 +6,7 @@ error_reporting(0);
 // Configuration
 $smtp_user = 'info@berber-magic-tours.com';
 $smtp_pass = '@berber-magic-tours2026';
-$to_email  = 'javarx@gmail.com';
+$to_email  = 'berbermagictours@gmail.com';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['status' => 'error', 'message' => 'Invalid request method.']);
