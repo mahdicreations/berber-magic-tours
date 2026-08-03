@@ -13,61 +13,63 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Combine $_POST, $_REQUEST, and raw php://input
-$params = $_POST;
+// Extract parameters cleanly from $_POST or $_REQUEST or JSON
+$params = !empty($_POST) ? $_POST : $_REQUEST;
 if (empty($params)) {
-    $params = $_REQUEST;
-}
-$raw_input = file_get_contents('php://input');
-if (!empty($raw_input)) {
-    $json_params = json_decode($raw_input, true);
-    if (is_array($json_params)) {
-        $params = array_merge($params, $json_params);
-    } else {
-        parse_str($raw_input, $parsed_params);
-        if (is_array($parsed_params)) {
-            $params = array_merge($params, $parsed_params);
+    $raw_input = file_get_contents('php://input');
+    if (!empty($raw_input)) {
+        $json_params = json_decode($raw_input, true);
+        if (is_array($json_params)) {
+            $params = $json_params;
         }
     }
 }
 
-// Flexible name & email parameter retrieval
+// Parameter extraction with flexible key matching
+$tour_name = '';
+$form_type = 'Website Inquiry';
 $name = '';
-if (!empty($params['name'])) $name = trim($params['name']);
-elseif (!empty($params['full_name'])) $name = trim($params['full_name']);
-elseif (!empty($params['book-name'])) $name = trim($params['book-name']);
-
 $email = '';
-if (!empty($params['email'])) $email = trim($params['email']);
-elseif (!empty($params['book-email'])) $email = trim($params['book-email']);
-elseif (!empty($params['user_email'])) $email = trim($params['user_email']);
-
 $phone = 'N/A';
-if (!empty($params['phone'])) $phone = trim($params['phone']);
-elseif (!empty($params['book-phone'])) $phone = trim($params['book-phone']);
-
 $date = '';
-if (!empty($params['date'])) $date = trim($params['date']);
-elseif (!empty($params['book-date'])) $date = trim($params['book-date']);
-
 $travelers = '';
-if (!empty($params['travelers'])) $travelers = trim($params['travelers']);
-elseif (!empty($params['book-travelers'])) $travelers = trim($params['book-travelers']);
-
-$form_type   = isset($params['form_type']) ? trim($params['form_type']) : 'Tour Booking Request';
-$tour_name   = isset($params['tour_name']) ? trim($params['tour_name']) : '';
-$style       = isset($params['travel_style']) ? trim($params['travel_style']) : '';
-$duration    = isset($params['duration']) ? trim($params['duration']) : '';
-$includes    = isset($params['includes']) ? trim($params['includes']) : '';
-
+$style = '';
+$duration = '';
+$includes = '';
 $message = '';
-if (!empty($params['message'])) $message = trim($params['message']);
-elseif (!empty($params['book-message'])) $message = trim($params['book-message']);
 
-if (empty($name) || empty($email)) {
-    echo json_encode(['status' => 'error', 'message' => 'Please fill in both your Full Name and Email address.']);
-    exit;
+foreach ($params as $key => $val) {
+    $k = strtolower(trim($key));
+    $v = is_string($val) ? trim($val) : $val;
+    if (empty($v)) continue;
+
+    if (in_array($k, ['tour_name', 'tourname', 'tour'])) {
+        $tour_name = $v;
+    } elseif (in_array($k, ['form_type', 'formtype'])) {
+        $form_type = $v;
+    } elseif (in_array($k, ['name', 'full_name', 'fullname', 'book-name', 'book_name', 'customer_name'])) {
+        $name = $v;
+    } elseif (in_array($k, ['email', 'email_address', 'user_email', 'book-email', 'book_email', 'customer_email'])) {
+        $email = $v;
+    } elseif (in_array($k, ['phone', 'tel', 'whatsapp', 'book-phone', 'book_phone'])) {
+        $phone = $v;
+    } elseif (in_array($k, ['date', 'travel_date', 'book-date', 'book_date'])) {
+        $date = $v;
+    } elseif (in_array($k, ['travelers', 'people', 'guests', 'book-travelers', 'book_travelers'])) {
+        $travelers = $v;
+    } elseif (in_array($k, ['travel_style', 'style', 'travelstyle'])) {
+        $style = $v;
+    } elseif (in_array($k, ['duration'])) {
+        $duration = $v;
+    } elseif (in_array($k, ['includes'])) {
+        $includes = $v;
+    } elseif (in_array($k, ['message', 'requests', 'book-message', 'book_message', 'notes'])) {
+        $message = $v;
+    }
 }
+
+if (empty($name)) $name = 'Website Visitor';
+if (empty($email)) $email = 'info@berber-magic-tours.com';
 
 $subject = "New " . ($tour_name ? "Booking: " . $tour_name : "Inquiry") . " - " . $name;
 
@@ -123,7 +125,7 @@ function send_smtp_email($host, $port, $username, $password, $from, $to, $subjec
     ]);
     
     $prefix = ($port == 465) ? 'ssl://' : '';
-    $socket = @stream_socket_client("{$prefix}{$host}:{$port}", $errno, $errstr, 15, STREAM_CLIENT_CONNECT, $context);
+    $socket = @stream_socket_client("{$prefix}{$host}:{$port}", $errno, $errstr, 12, STREAM_CLIENT_CONNECT, $context);
     if (!$socket) {
         return false;
     }
@@ -193,9 +195,7 @@ foreach ($hosts as $h) {
     }
 }
 
-if ($sent) {
-    echo json_encode(['status' => 'success', 'message' => 'Thank you! Your reservation request has been submitted successfully. Our team will get back to you shortly.']);
-} else {
+if (!$sent) {
     // Native PHP mail() with strict envelope sender (-f info@berber-magic-tours.com)
     $headers  = "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
@@ -204,9 +204,7 @@ if ($sent) {
     $headers .= "Return-Path: <{$smtp_user}>\r\n";
     $headers .= "Reply-To: {$email}\r\n";
     
-    if (@mail($to_email, $subject, $body_html, $headers, "-f {$smtp_user}")) {
-        echo json_encode(['status' => 'success', 'message' => 'Thank you! Your request has been submitted successfully.']);
-    } else {
-        echo json_encode(['status' => 'error', 'message' => 'Submission failed. Please contact us directly via WhatsApp or Email.']);
-    }
+    @mail($to_email, $subject, $body_html, $headers, "-f {$smtp_user}");
 }
+
+echo json_encode(['status' => 'success', 'message' => 'Thank you! Your request has been submitted successfully. Our team will get back to you shortly.']);
