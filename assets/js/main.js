@@ -298,12 +298,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     startAutoPlay();
 
-    const carouselArea = document.querySelector('.ta-carousel-wrapper');
-    if (carouselArea) {
-        carouselArea.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
-        carouselArea.addEventListener('mouseleave', () => startAutoPlay());
+    const wrapper = track.closest('.ta-carousel-wrapper');
+    if (wrapper) {
+        wrapper.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
+        wrapper.addEventListener('mouseleave', () => startAutoPlay());
     }
 });
 
-
-
+// Travel Style Selector Handler
+window.selectTravelStyle = function(cardElem, styleValue) {
+    const parent = cardElem.parentElement;
+    parent.querySelectorAll('.travel-style-card').forEach(c => {
+        c.style.border = '1px solid #E2E8F0';
+        c.style.background = '#FFFFFF';
+        c.classList.remove('active');
+    });
+    cardElem.style.border = '2px solid #D95D39';
+    cardElem.style.background = '#FFF7F2';
+    cardElem.classList.add('active');
+    const hiddenInput = parent.parentElement.querySelector('input[name="travel_style"]');
+    if (hiddenInput) {
+        hiddenInput.value = styleValue;
+    }
+};
