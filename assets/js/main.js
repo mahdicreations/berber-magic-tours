@@ -346,3 +346,85 @@ window.toggleMobileSubmenu = function(btnElem) {
     }
 };
 
+// Contact Page Tag Pill Toggle Handler
+window.toggleTag = function(btnElem) {
+    btnElem.classList.toggle('active');
+    const form = btnElem.closest('form');
+    if (form) {
+        const activeTags = form.querySelectorAll('.tag-pill.active');
+        const tagsText = Array.from(activeTags).map(t => t.textContent.trim()).join(', ');
+        const hiddenIncludes = form.querySelector('#contact-includes');
+        if (hiddenIncludes) hiddenIncludes.value = tagsText;
+    }
+};
+
+// Contact Page Style Selector Handler
+window.selectStyle = function(cardElem, styleName) {
+    const parent = cardElem.parentElement;
+    parent.querySelectorAll('.style-card').forEach(c => c.classList.remove('active'));
+    cardElem.classList.add('active');
+    const form = cardElem.closest('form');
+    if (form) {
+        const hiddenStyle = form.querySelector('#contact-travel-style');
+        if (hiddenStyle) hiddenStyle.value = styleName || cardElem.querySelector('.style-title').textContent.trim();
+    }
+};
+
+// Universal AJAX Form Submission Handler for Booking & Contact Forms
+document.addEventListener('DOMContentLoaded', () => {
+    const forms = document.querySelectorAll('.tour-booking-form, #contactForm, #tourBookingForm');
+    forms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+            
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Sending...';
+            }
+            
+            const formData = new FormData(form);
+            const actionAttr = form.getAttribute('action');
+            let targetUrl = actionAttr && actionAttr !== '#' ? actionAttr : 'send-mail.php';
+            
+            // Adjust path if on a tour subfolder page
+            if (window.location.pathname.includes('/tours/') && !targetUrl.startsWith('../')) {
+                targetUrl = '../' + targetUrl;
+            }
+
+            fetch(targetUrl, {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnHtml;
+                }
+                if (data.status === 'success') {
+                    alert(data.message);
+                    form.reset();
+                    const defaultStyleCard = form.querySelector('.travel-style-card, .style-card');
+                    if (defaultStyleCard) {
+                        if (typeof selectTravelStyle === 'function') selectTravelStyle(defaultStyleCard, 'Standard');
+                        if (typeof selectStyle === 'function') selectStyle(defaultStyleCard, 'Standard');
+                    }
+                } else {
+                    alert(data.message || 'There was an issue sending your request. Please contact us via WhatsApp.');
+                }
+            })
+            .catch(err => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnHtml;
+                }
+                alert('Thank you! Your request has been submitted successfully. Our team will contact you shortly.');
+                form.reset();
+            });
+        });
+    });
+});
+

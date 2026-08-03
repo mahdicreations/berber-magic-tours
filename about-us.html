@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Berber Magic Tours</title>
+    <meta name="description" content="Learn about Berber Magic Tours, a family-run Berber travel company in Morocco offering authentic Atlas mountain trekking, Sahara desert tours, and responsible tourism.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Style+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css" />
+    <style>
+        .about-story-text p {
+            color: #475569;
+            font-size: 0.98rem;
+            line-height: 1.75;
+            margin-bottom: 18px;
+        }
+        .why-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 32px 24px;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.03);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .why-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 35px rgba(0,0,0,0.07);
+            border-color: var(--primary);
+        }
+        .why-icon-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header" class="header">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container top-bar-container">
+                <div class="top-bar-left">
+                    <a href="https://wa.me/212653274190" target="_blank"><i class="fab fa-whatsapp"></i> +212 653 274 190</a>
+                    <a href="mailto:info@berber-magic-tours.com"><i class="far fa-envelope"></i> info@berber-magic-tours.com</a>
+                </div>
+                <div class="top-bar-right">
+                    <span><i class="fas fa-map-marker-alt"></i> Douar Imlil, Marrakech</span>
+                    <div class="top-bar-socials">
+                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html"><img src="assets/images/logo.png" alt="Berber Magic Tours"></a>
+            </div>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="marrakech-day-trips.html">Marrakech Day Trips</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="trek-and-hike.html">Trek &amp; Hike <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="climb-mount-toubkal.html">Climb Mount Toubkal</a></li>
+                            <li><a href="berber-village-treks.html">Berber Village Treks</a></li>
+                            <li><a href="combine-toubkal-and-villages.html">Combine Toubkal &amp; Villages</a></li>
+                            <li><a href="biking-in-morocco.html">Biking in Morocco</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="combine-atlas-mountains-and-desert.html">Combine Atlas Mountains &amp; Desert <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="combine-berber-villages-and-sahara.html">Combine Berber Villages &amp; Sahara</a></li>
+                            <li><a href="combine-toubkal-and-sahara.html">Combine Toubkal &amp; Sahara</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Other Tours <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a href="sahara-desert-tours.html">Sahara Desert Tours <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="tours-from-marrakech.html">Tours from Marrakech</a></li>
+                                    <li><a href="tours-from-casablanca.html">Tours from Casablanca</a></li>
+                                    <li><a href="tours-from-fes.html">Tours from Fes</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="morocco-tours.html">Morocco Tours</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="header-flags">
+                    <span class="fi fi-gb"></span>
+                    <span class="fi fi-fr"></span>
+                    <span class="fi fi-es"></span>
+                </div>
+                <a href="contact.html" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact Us</a>
+                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <img src="assets/images/logo.png" alt="Logo" class="mobile-logo">
+            <button class="close-menu-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="mobile-nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="marrakech-day-trips.html">Marrakech Day Trips</a></li>
+            
+            <li class="mobile-dropdown">
+                <div class="mobile-dropdown-header">
+                    <a href="trek-and-hike.html">Trek &amp; Hike</a>
+                    <button type="button" class="mobile-dropdown-toggle" onclick="toggleMobileSubmenu(this)"><i class="fas fa-plus"></i></button>
+                </div>
+                <ul class="mobile-submenu">
+                    <li><a href="climb-mount-toubkal.html">Climb Mount Toubkal</a></li>
+                    <li><a href="berber-village-treks.html">Berber Village Treks</a></li>
+                    <li><a href="combine-toubkal-and-villages.html">Combine Toubkal &amp; Villages</a></li>
+                    <li><a href="biking-in-morocco.html">Biking in Morocco</a></li>
+                </ul>
+            </li>
+            
+            <li class="mobile-dropdown">
+                <div class="mobile-dropdown-header">
+                    <a href="combine-atlas-mountains-and-desert.html">Combine Atlas Mountains &amp; Desert</a>
+                    <button type="button" class="mobile-dropdown-toggle" onclick="toggleMobileSubmenu(this)"><i class="fas fa-plus"></i></button>
+                </div>
+                <ul class="mobile-submenu">
+                    <li><a href="combine-berber-villages-and-sahara.html">Combine Berber Villages &amp; Sahara</a></li>
+                    <li><a href="combine-toubkal-and-sahara.html">Combine Toubkal &amp; Sahara</a></li>
+                </ul>
+            </li>
+
+            <li class="mobile-dropdown">
+                <div class="mobile-dropdown-header">
+                    <a href="sahara-desert-tours.html">Sahara Desert Tours</a>
+                    <button type="button" class="mobile-dropdown-toggle" onclick="toggleMobileSubmenu(this)"><i class="fas fa-plus"></i></button>
+                </div>
+                <ul class="mobile-submenu">
+                    <li><a href="tours-from-marrakech.html">Tours from Marrakech</a></li>
+                    <li><a href="tours-from-casablanca.html">Tours from Casablanca</a></li>
+                    <li><a href="tours-from-fes.html">Tours from Fes</a></li>
+                </ul>
+            </li>
+
+            <li><a href="morocco-tours.html">Morocco Tours</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary mobile-btn"><i class="fas fa-envelope"></i> Contact Us</a>
+    </div>
+
+    <!-- Page Hero Banner -->
+    <section class="page-header" style="padding: 60px 0 50px 0; background: linear-gradient(180deg, rgba(18, 30, 49, 0.88) 0%, rgba(18, 30, 49, 0.95) 100%), url('assets/images/welcome-berber-hospitality.jpg') center/cover no-repeat; text-align: center;">
+        <div class="container" style="position: relative; z-index: 2;">
+            <span style="color: var(--primary); font-weight: 700; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 8px;">Professional Team in Sustainable Adventures</span>
+            <h1 style="font-size: 2.6rem; font-family: var(--font-heading); color: #ffffff; margin-bottom: 10px;">About Berber Magic Tours</h1>
+            <div class="breadcrumb text-white" style="font-size: 0.95rem; color: rgba(255,255,255,0.8);">
+                <a href="index.html" style="color: #ffffff; text-decoration: none;">Home</a> <span style="margin: 0 8px;">/</span> About Us
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section style="padding: 70px 0 60px 0; background: #ffffff;">
+        <div class="container">
+            
+            <div style="text-align: center; margin-bottom: 45px;">
+                <span style="color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.85rem; display: block; margin-bottom: 6px;">Professional Team in Sustainable Adventurous</span>
+                <h2 style="font-family: var(--font-heading); font-size: 2.3rem; color: var(--secondary); margin: 0;">OUR STORY</h2>
+                <div style="width: 60px; height: 3px; background: var(--primary); margin: 14px auto 0; border-radius: 2px;"></div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 45px; align-items: center;">
+                
+                <!-- Story Text Column -->
+                <div class="about-story-text">
+                    <p>
+                        Nestled in the heart of Morocco, our family-run <strong>travel company</strong> boasts <strong>generations of experience</strong> leading immersive journeys through the country's <strong>captivating landscapes</strong> and <strong>vibrant culture</strong>. We invite you to step into the <strong>footsteps of our ancestors</strong>, retracing historical paths and uncovering the rich tapestry of traditions. However, our <strong>passion</strong> extends beyond exploration. We are deeply committed to <strong>responsible tourism</strong>, ensuring your <strong>adventure</strong> leaves a <strong>positive impact</strong> on the environment and uplifts the <strong>communities</strong> we visit. Through <strong>sustainable practices</strong> and local partnerships, we strive to create <strong>unforgettable experiences</strong> while preserving the <strong>magic</strong> of Morocco for <strong>generations</strong> to come.
+                    </p>
+                    <p>
+                        Our professional training and our intimate knowledge of the region provide you with a combination of talents that will guarantee you a memorable and trouble-free holiday.
+                    </p>
+                    <p>
+                        We are a reliable team of professionals eager to make your journey enjoyable and memorable. Every aspect of your journey will be organized and provided: transport, accommodation, food, personnel, portage, and outdoor gear. From one-day guided walks to full package holidays...whatever your choice, a splendid adventure awaits you.
+                    </p>
+                </div>
+
+                <!-- 4-Photo Mosaic Grid -->
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.08);">
+                    <div style="height: 190px; background-image: url('assets/images/welcome-berber-hospitality.jpg'); background-size: cover; background-position: center;"></div>
+                    <div style="height: 190px; background-image: url('tours/images/2-days-mount-toubkal/Toubkal-rewards.jpg'); background-size: cover; background-position: center;"></div>
+                    <div style="height: 190px; background-image: url('assets/images/welcome-sahara-dunes.jpg'); background-size: cover; background-position: center;"></div>
+                    <div style="height: 190px; background-image: url('tours/images/overnight-in-atlas-mountains/hero-overnight-atlas.jpg'); background-size: cover; background-position: center;"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Travel With Us Section -->
+    <section style="padding: 70px 0; background: #F8FAFC; border-top: 1px solid #E2E8F0;">
+        <div class="container">
+            
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2 style="font-family: var(--font-heading); font-size: 2.3rem; color: var(--secondary); margin: 0;">WHY TRAVEL WITH US ?</h2>
+                <div style="width: 60px; height: 3px; background: var(--primary); margin: 14px auto 0; border-radius: 2px;"></div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+                
+                <!-- Feature 1 -->
+                <div class="why-card">
+                    <div class="why-icon-circle" style="background: rgba(37, 99, 235, 0.1); color: #2563EB;">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--secondary); margin-bottom: 12px; font-family: var(--font-heading);">QUALITY OF OUR SERVICE</h3>
+                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 10px;">
+                        We focus on quality – your unforgettable journey starts here, with exceptional service and the highest standards.
+                    </p>
+                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin: 0;">
+                        We can ensure you truly memorable and amazing adventures, making us a top recommendation for anyone seeking an unparalleled travel experience.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="why-card">
+                    <div class="why-icon-circle" style="background: rgba(34, 197, 94, 0.1); color: #22C55E;">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--secondary); margin-bottom: 12px; font-family: var(--font-heading);">PROMOTE RESPONSIBLE TOURISM</h3>
+                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 10px;">
+                        We focus on sustainability – supporting local High Atlas and desert communities, respecting Berber heritage, and preserving nature.
+                    </p>
+                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin: 0;">
+                        We ensure your adventure leaves a positive impact on local culture and the environment.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="why-card">
+                    <div class="why-icon-circle" style="background: rgba(217, 93, 57, 0.1); color: var(--primary);">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--secondary); margin-bottom: 12px; font-family: var(--font-heading);">TAILOR MADE</h3>
+                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 10px;">
+                        We can help you organize a tour to your specific needs for independent travellers, couples, families and small size groups. We can absolutely craft your dream holiday base on your requirements and wishes depend on your travel duration.
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--primary); font-weight: 600; line-height: 1.6; margin: 0;">
+                        Please feel free to contact us for enquiry or any question.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="why-card">
+                    <div class="why-icon-circle" style="background: rgba(168, 85, 247, 0.1); color: #A855F7;">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--secondary); margin-bottom: 12px; font-family: var(--font-heading);">GREAT VALUE OF MONEY</h3>
+                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin: 0;">
+                        Discover the unbeatable tour prices and explore a vast array of packages that will captivate even the most seasoned traveller. With the commitment to providing the best deals, we ensure an unforgettable experience for every avid tourist.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section style="padding: 60px 0; background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); color: #ffffff; text-align: center;">
+        <div class="container">
+            <h2 style="font-family: var(--font-heading); font-size: 2.2rem; color: #ffffff; margin-bottom: 12px;">Ready for your Authentic Berber Journey?</h2>
+            <p style="font-size: 1.05rem; color: rgba(255,255,255,0.8); max-width: 650px; margin: 0 auto 28px auto;">Let our experienced local mountain and desert guides customize your dream trip to Morocco.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-primary" style="padding: 14px 32px; font-size: 1rem;"><i class="fas fa-envelope"></i> Contact Us</a>
+                <a href="https://wa.me/212653274190" target="_blank" class="btn btn-whatsapp" style="padding: 14px 32px; font-size: 1rem;"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: About -->
+                <div class="footer-col about-col">
+                    <img src="assets/images/logo.png" alt="Berber Magic Tours" class="footer-logo">
+                    <p class="footer-desc">Experience the magic of Morocco through the eyes of Locals. Let us help you find a journey of a lifetime.</p>
+                    <ul class="footer-contact-list">
+                        <li><i class="fas fa-map-marker-alt"></i> <span>Douar Imlil Poste Asni 42152 Marrakech</span></li>
+                        <li><i class="fab fa-whatsapp"></i> <span>+212 653 274 190</span></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@berber-magic-tours.com">info@berber-magic-tours.com</a></li>
+                    </ul>
+                    <div class="social-links mt-4">
+                        <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                                <!-- Col 2: Menu -->
+                <div class="footer-col links-col">
+                    <h3 class="footer-title">Menu</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="marrakech-day-trips.html">Marrakech Day Trips</a></li>
+                        <li><a href="trek-and-hike.html">Trek &amp; Hike</a></li>
+                        <li><a href="sahara-desert-tours.html">Sahara Desert Tours</a></li>
+                        <li><a href="morocco-tours.html">Morocco Tours</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Col 3: Popular Morocco -->
+                <div class="footer-col popular-col">
+                    <h3 class="footer-title">Popular Morocco</h3>
+                    <ul class="footer-links">
+                        <li><a href="berber-village-treks.html">Exploring Berber villages &amp; valleys</a></li>
+                        <li><a href="climb-mount-toubkal.html">Climbing Mount Toubkal</a></li>
+                        <li><a href="marrakech-day-trips.html">Day trips from Marrakech</a></li>
+                        <li><a href="sahara-desert-tours.html">Desert Tours</a></li>
+                        <li><a href="morocco-tours.html">Morocco Trips</a></li>
+                        <li><a href="combine-atlas-mountains-and-desert.html">Combine Atlas mountains &amp; Desert</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Col 4: TripAdvisor -->
+                <div class="footer-col tripadvisor-col">
+                    <h3 class="footer-title">Recommended</h3>
+                    <div class="tripadvisor-widget-dark">
+                        <div class="ta-badge-header">
+                            <i class="fab fa-tripadvisor text-success"></i>
+                            <div>
+                                <strong style="color: #ffffff;">TripAdvisor</strong>
+                                <small style="color: #94A3B8; display: block;">Travellers' Choice</small>
+                            </div>
+                        </div>
+                        <div class="ta-rating-stars">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <span class="text-white ms-2">5.0 / 5.0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Berber Magic Tours. All Rights Reserved. Designed for authentic Moroccan experiences.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

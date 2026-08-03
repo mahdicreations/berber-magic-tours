@@ -1,12 +1,9 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 
-// Enable error reporting for debugging if needed
 error_reporting(0);
 
 // Configuration
-$smtp_host = 'berber-magic-tours.com';
-$smtp_port = 465; // SSL
 $smtp_user = 'info@berber-magic-tours.com';
 $smtp_pass = '@berber-magic-tours2026';
 $to_email  = 'javarx@gmail.com';
@@ -58,7 +55,7 @@ if (!empty($duration)) addRow($rows_html, 'Trip Duration', $duration);
 if (!empty($includes)) addRow($rows_html, 'Included Activities', $includes);
 if (!empty($message)) addRow($rows_html, 'Special Requests / Message', $message);
 
-// Build Email Template
+// Build HTML Email Template
 $body_html = '<!DOCTYPE html><html><head><meta charset="utf-8"></head><body style="margin:0; padding:0; background-color:#F4F6F8; font-family:\'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif; color:#333;">'
            . '<table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#F4F6F8; padding: 40px 10px;"><tr><td align="center">'
            . '<table border="0" cellpadding="0" cellspacing="0" width="600" style="background-color:#ffffff; border-radius:16px; overflow:hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">'
@@ -77,7 +74,7 @@ $body_html = '<!DOCTYPE html><html><head><meta charset="utf-8"></head><body styl
            . '<tr><td style="background-color:#F8FAFC; padding:20px 30px; text-align:center; border-top:1px solid #E2E8F0; color:#94A3B8; font-size:12px;">Sent automatically from Berber Magic Tours website booking system.</td></tr>'
            . '</table></td></tr></table></body></html>';
 
-// Send via SMTP SSL Port 465
+// Robust SMTP Socket Mailer with SSL/TLS authentication
 function send_smtp_email($host, $port, $username, $password, $from, $to, $subject, $html_content, $reply_to) {
     $context = stream_context_create([
         'ssl' => [
@@ -87,14 +84,15 @@ function send_smtp_email($host, $port, $username, $password, $from, $to, $subjec
         ]
     ]);
     
-    $socket = @stream_socket_client("ssl://{$host}:{$port}", $errno, $errstr, 20, STREAM_CLIENT_CONNECT, $context);
+    $prefix = ($port == 465) ? 'ssl://' : '';
+    $socket = @stream_socket_client("{$prefix}{$host}:{$port}", $errno, $errstr, 15, STREAM_CLIENT_CONNECT, $context);
     if (!$socket) {
         return false;
     }
     
     fgets($socket, 512);
     
-    fputs($socket, "EHLO {$host}\r\n");
+    fputs($socket, "EHLO localhost\r\n");
     while ($line = fgets($socket, 512)) {
         if (substr($line, 3, 1) == ' ') break;
     }
@@ -124,6 +122,8 @@ function send_smtp_email($host, $port, $username, $password, $from, $to, $subjec
     $headers  = "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
     $headers .= "From: Berber Magic Tours <{$from}>\r\n";
+    $headers .= "Sender: {$from}\r\n";
+    $headers .= "Return-Path: <{$from}>\r\n";
     $headers .= "Reply-To: {$reply_to}\r\n";
     $headers .= "To: {$to}\r\n";
     $headers .= "Subject: {$subject}\r\n";
@@ -137,18 +137,36 @@ function send_smtp_email($host, $port, $username, $password, $from, $to, $subjec
     return true;
 }
 
-$sent = send_smtp_email($smtp_host, $smtp_port, $smtp_user, $smtp_pass, $smtp_user, $to_email, $subject, $body_html, $email);
+// Try SMTP hosts sequentially
+$hosts = [
+    ['host' => 'localhost', 'port' => 25],
+    ['host' => '127.0.0.1', 'port' => 25],
+    ['host' => 'localhost', 'port' => 465],
+    ['host' => 'berber-magic-tours.com', 'port' => 465],
+    ['host' => 'mail.berber-magic-tours.com', 'port' => 465],
+    ['host' => 'premium705.web-hosting.com', 'port' => 465]
+];
+
+$sent = false;
+foreach ($hosts as $h) {
+    if (send_smtp_email($h['host'], $h['port'], $smtp_user, $smtp_pass, $smtp_user, $to_email, $subject, $body_html, $email)) {
+        $sent = true;
+        break;
+    }
+}
 
 if ($sent) {
     echo json_encode(['status' => 'success', 'message' => 'Thank you! Your reservation request has been submitted successfully. Our team will get back to you shortly.']);
 } else {
-    // Fallback to mail()
+    // Native PHP mail() with strict envelope sender (-f info@berber-magic-tours.com) to pass SPF & DKIM
     $headers  = "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
     $headers .= "From: Berber Magic Tours <{$smtp_user}>\r\n";
+    $headers .= "Sender: {$smtp_user}\r\n";
+    $headers .= "Return-Path: <{$smtp_user}>\r\n";
     $headers .= "Reply-To: {$email}\r\n";
     
-    if (@mail($to_email, $subject, $body_html, $headers)) {
+    if (@mail($to_email, $subject, $body_html, $headers, "-f {$smtp_user}")) {
         echo json_encode(['status' => 'success', 'message' => 'Thank you! Your request has been submitted successfully.']);
     } else {
         echo json_encode(['status' => 'error', 'message' => 'Submission failed. Please contact us directly via WhatsApp or Email.']);

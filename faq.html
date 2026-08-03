@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions (FAQ) | Berber Magic Tours</title>
+    <meta name="description" content="Find answers to common questions about trekking in the High Atlas, Mount Toubkal climbing, Sahara desert tours, packing lists, and booking with Berber Magic Tours.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Style+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css" />
+    <style>
+        .faq-page-item {
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid #E2E8F0;
+            overflow: hidden;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+        .faq-page-header {
+            width: 100%;
+            padding: 22px 26px;
+            background: transparent;
+            border: none;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            text-align: left;
+        }
+        .faq-page-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            padding: 0 26px;
+            color: #475569;
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+        .faq-page-item.active .faq-page-content {
+            padding-bottom: 24px;
+            border-top: 1px solid #F1F5F9;
+            padding-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="top-bar">
+            <div class="container top-bar-container">
+                <div class="top-bar-left">
+                    <a href="https://wa.me/212653274190" target="_blank"><i class="fab fa-whatsapp"></i> +212 653 274 190</a>
+                    <a href="mailto:info@berber-magic-tours.com"><i class="far fa-envelope"></i> info@berber-magic-tours.com</a>
+                </div>
+                <div class="top-bar-right">
+                    <span><i class="fas fa-map-marker-alt"></i> Douar Imlil, Marrakech</span>
+                    <div class="top-bar-socials">
+                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html"><img src="assets/images/logo.png" alt="Berber Magic Tours"></a>
+            </div>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="marrakech-day-trips.html">Marrakech Day Trips</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="trek-and-hike.html">Trek &amp; Hike <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="climb-mount-toubkal.html">Climb Mount Toubkal</a></li>
+                            <li><a href="berber-village-treks.html">Berber Village Treks</a></li>
+                            <li><a href="combine-toubkal-and-villages.html">Combine Toubkal &amp; Villages</a></li>
+                            <li><a href="biking-in-morocco.html">Biking in Morocco</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="combine-atlas-mountains-and-desert.html">Combine Atlas Mountains &amp; Desert <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="combine-berber-villages-and-sahara.html">Combine Berber Villages &amp; Sahara</a></li>
+                            <li><a href="combine-toubkal-and-sahara.html">Combine Toubkal &amp; Sahara</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Other Tours <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a href="sahara-desert-tours.html">Sahara Desert Tours <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="tours-from-marrakech.html">Tours from Marrakech</a></li>
+                                    <li><a href="tours-from-casablanca.html">Tours from Casablanca</a></li>
+                                    <li><a href="tours-from-fes.html">Tours from Fes</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="morocco-tours.html">Morocco Tours</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="header-flags">
+                    <span class="fi fi-gb"></span>
+                    <span class="fi fi-fr"></span>
+                    <span class="fi fi-es"></span>
+                </div>
+                <a href="contact.html" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact Us</a>
+                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <img src="assets/images/logo.png" alt="Logo" class="mobile-logo">
+            <button class="close-menu-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="mobile-nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="marrakech-day-trips.html">Marrakech Day Trips</a></li>
+            
+            <li class="mobile-dropdown">
+                <div class="mobile-dropdown-header">
+                    <a href="trek-and-hike.html">Trek &amp; Hike</a>
+                    <button type="button" class="mobile-dropdown-toggle" onclick="toggleMobileSubmenu(this)"><i class="fas fa-plus"></i></button>
+                </div>
+                <ul class="mobile-submenu">
+                    <li><a href="climb-mount-toubkal.html">Climb Mount Toubkal</a></li>
+                    <li><a href="berber-village-treks.html">Berber Village Treks</a></li>
+                    <li><a href="combine-toubkal-and-villages.html">Combine Toubkal &amp; Villages</a></li>
+                    <li><a href="biking-in-morocco.html">Biking in Morocco</a></li>
+                </ul>
+            </li>
+            
+            <li class="mobile-dropdown">
+                <div class="mobile-dropdown-header">
+                    <a href="combine-atlas-mountains-and-desert.html">Combine Atlas Mountains &amp; Desert</a>
+                    <button type="button" class="mobile-dropdown-toggle" onclick="toggleMobileSubmenu(this)"><i class="fas fa-plus"></i></button>
+                </div>
+                <ul class="mobile-submenu">
+                    <li><a href="combine-berber-villages-and-sahara.html">Combine Berber Villages &amp; Sahara</a></li>
+                    <li><a href="combine-toubkal-and-sahara.html">Combine Toubkal &amp; Sahara</a></li>
+                </ul>
+            </li>
+
+            <li class="mobile-dropdown">
+                <div class="mobile-dropdown-header">
+                    <a href="sahara-desert-tours.html">Sahara Desert Tours</a>
+                    <button type="button" class="mobile-dropdown-toggle" onclick="toggleMobileSubmenu(this)"><i class="fas fa-plus"></i></button>
+                </div>
+                <ul class="mobile-submenu">
+                    <li><a href="tours-from-marrakech.html">Tours from Marrakech</a></li>
+                    <li><a href="tours-from-casablanca.html">Tours from Casablanca</a></li>
+                    <li><a href="tours-from-fes.html">Tours from Fes</a></li>
+                </ul>
+            </li>
+
+            <li><a href="morocco-tours.html">Morocco Tours</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary mobile-btn"><i class="fas fa-envelope"></i> Contact Us</a>
+    </div>
+
+    <!-- Page Hero Banner -->
+    <section class="page-header" style="padding: 60px 0 50px 0; background: linear-gradient(180deg, rgba(18, 30, 49, 0.88) 0%, rgba(18, 30, 49, 0.95) 100%), url('assets/images/slide2.png') center/cover no-repeat; text-align: center;">
+        <div class="container" style="position: relative; z-index: 2;">
+            <span style="color: var(--primary); font-weight: 700; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 8px;">Got Questions? We Have Answers</span>
+            <h1 style="font-size: 2.6rem; font-family: var(--font-heading); color: #ffffff; margin-bottom: 10px;">Frequently Asked Questions</h1>
+            <div class="breadcrumb text-white" style="font-size: 0.95rem; color: rgba(255,255,255,0.8);">
+                <a href="index.html" style="color: #ffffff; text-decoration: none;">Home</a> <span style="margin: 0 8px;">/</span> FAQ
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section style="padding: 70px 0; background: #F8FAFC;">
+        <div class="container" style="max-width: 900px;">
+            
+            <div style="text-align: center; margin-bottom: 45px;">
+                <span style="color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.85rem; display: block; margin-bottom: 6px;">Everything You Need To Know</span>
+                <h2 style="font-family: var(--font-heading); font-size: 2.3rem; color: var(--secondary); margin: 0;">Frequently Asked Questions</h2>
+                <div style="width: 60px; height: 3px; background: var(--primary); margin: 14px auto 0; border-radius: 2px;"></div>
+            </div>
+
+            <div class="faq-list">
+                
+                <!-- FAQ 1 -->
+                <div class="faq-page-item">
+                    <button type="button" class="faq-page-header" onclick="toggleFaqPageItem(this)">
+                        <span style="font-size: 1.1rem; font-weight: 700; color: var(--secondary); font-family: var(--font-heading);">What physical fitness level is required for climbing Mount Toubkal?</span>
+                        <div style="width: 36px; height: 36px; border-radius: 50%; background: #F1F5F9; color: var(--secondary); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; shrink: 0;">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-page-content">
+                        Mount Toubkal (4,167m) is a non-technical climb, meaning no previous mountaineering experience or ropes are required. However, it requires a reasonable level of physical fitness as you will be hiking 5 to 7 hours per day uphill. We recommend regular cardio training like hiking or running before your trip.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-page-item">
+                    <button type="button" class="faq-page-header" onclick="toggleFaqPageItem(this)">
+                        <span style="font-size: 1.1rem; font-weight: 700; color: var(--secondary); font-family: var(--font-heading);">What equipment or clothing should I bring for High Atlas trekking?</span>
+                        <div style="width: 36px; height: 36px; border-radius: 50%; background: #F1F5F9; color: var(--secondary); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; shrink: 0;">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-page-content">
+                        We recommend sturdy broken-in hiking boots, warm fleece/down layers, waterproof jacket, sun protection (glasses, hat, sunscreen), sleeping bag, and a daypack. If you don't have crampons or trekking poles, they can easily be rented in Imlil village before the trek.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-page-item">
+                    <button type="button" class="faq-page-header" onclick="toggleFaqPageItem(this)">
+                        <span style="font-size: 1.1rem; font-weight: 700; color: var(--secondary); font-family: var(--font-heading);">Are meals and luggage transport included in the trekking packages?</span>
+                        <div style="width: 36px; height: 36px; border-radius: 50%; background: #F1F5F9; color: var(--secondary); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; shrink: 0;">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-page-content">
+                        Yes! All our treks are fully inclusive of certified local mountain guides, cook, muleteers, and mules to carry your main luggage. Freshly cooked traditional Berber meals (breakfast, lunch, and dinner) are prepared daily by our team cook.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-page-item">
+                    <button type="button" class="faq-page-header" onclick="toggleFaqPageItem(this)">
+                        <span style="font-size: 1.1rem; font-weight: 700; color: var(--secondary); font-family: var(--font-heading);">What accommodation is provided during Sahara Desert tours?</span>
+                        <div style="width: 36px; height: 36px; border-radius: 50%; background: #F1F5F9; color: var(--secondary); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; shrink: 0;">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-page-content">
+                        Depending on your chosen travel style (Standard, Comfort, or Luxury), accommodation ranges from authentic Berber desert camps and 3-4★ traditional Riads to 5★ luxury glamping tents with private bathrooms, hot showers, and king beds in Merzouga or Erg Chebbi.
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-page-item">
+                    <button type="button" class="faq-page-header" onclick="toggleFaqPageItem(this)">
+                        <span style="font-size: 1.1rem; font-weight: 700; color: var(--secondary); font-family: var(--font-heading);">Can I customize my tour itinerary?</span>
+                        <div style="width: 36px; height: 36px; border-radius: 50%; background: #F1F5F9; color: var(--secondary); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; shrink: 0;">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-page-content">
+                        Absolutely! We specialize in tailor-made private tours. Whether you want to add extra days in Marrakech, combine Toubkal climbing with Sahara desert glamping, or cater to special dietary requirements (vegetarian, vegan, gluten-free), our local team will gladly customize every detail for you.
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-page-item">
+                    <button type="button" class="faq-page-header" onclick="toggleFaqPageItem(this)">
+                        <span style="font-size: 1.1rem; font-weight: 700; color: var(--secondary); font-family: var(--font-heading);">How do I secure my booking?</span>
+                        <div style="width: 36px; height: 36px; border-radius: 50%; background: #F1F5F9; color: var(--secondary); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; shrink: 0;">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-page-content">
+                        You can fill out any booking request form on our website or contact us directly via WhatsApp (+212 653 274 190). No immediate upfront payment is required to submit your request—our team will review your details, confirm availability, and guide you through the secure confirmation process.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: About -->
+                <div class="footer-col about-col">
+                    <img src="assets/images/logo.png" alt="Berber Magic Tours" class="footer-logo">
+                    <p class="footer-desc">Experience the magic of Morocco through the eyes of Locals. Let us help you find a journey of a lifetime.</p>
+                    <ul class="footer-contact-list">
+                        <li><i class="fas fa-map-marker-alt"></i> <span>Douar Imlil Poste Asni 42152 Marrakech</span></li>
+                        <li><i class="fab fa-whatsapp"></i> <span>+212 653 274 190</span></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@berber-magic-tours.com">info@berber-magic-tours.com</a></li>
+                    </ul>
+                    <div class="social-links mt-4">
+                        <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                                <!-- Col 2: Menu -->
+                <div class="footer-col links-col">
+                    <h3 class="footer-title">Menu</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="marrakech-day-trips.html">Marrakech Day Trips</a></li>
+                        <li><a href="trek-and-hike.html">Trek &amp; Hike</a></li>
+                        <li><a href="sahara-desert-tours.html">Sahara Desert Tours</a></li>
+                        <li><a href="morocco-tours.html">Morocco Tours</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Col 3: Popular Morocco -->
+                <div class="footer-col popular-col">
+                    <h3 class="footer-title">Popular Morocco</h3>
+                    <ul class="footer-links">
+                        <li><a href="berber-village-treks.html">Exploring Berber villages &amp; valleys</a></li>
+                        <li><a href="climb-mount-toubkal.html">Climbing Mount Toubkal</a></li>
+                        <li><a href="marrakech-day-trips.html">Day trips from Marrakech</a></li>
+                        <li><a href="sahara-desert-tours.html">Desert Tours</a></li>
+                        <li><a href="morocco-tours.html">Morocco Trips</a></li>
+                        <li><a href="combine-atlas-mountains-and-desert.html">Combine Atlas mountains &amp; Desert</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Col 4: TripAdvisor -->
+                <div class="footer-col tripadvisor-col">
+                    <h3 class="footer-title">Recommended</h3>
+                    <div class="tripadvisor-widget-dark">
+                        <div class="ta-badge-header">
+                            <i class="fab fa-tripadvisor text-success"></i>
+                            <div>
+                                <strong style="color: #ffffff;">TripAdvisor</strong>
+                                <small style="color: #94A3B8; display: block;">Travellers' Choice</small>
+                            </div>
+                        </div>
+                        <div class="ta-rating-stars">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <span class="text-white ms-2">5.0 / 5.0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Berber Magic Tours. All Rights Reserved. Designed for authentic Moroccan experiences.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        function toggleFaqPageItem(btn) {
+            const item = btn.closest('.faq-page-item');
+            const icon = item.querySelector('.faq-page-header i');
+            const content = item.querySelector('.faq-page-content');
+            const isOpen = item.classList.contains('active');
+            
+            if (isOpen) {
+                item.classList.remove('active');
+                content.style.maxHeight = '0px';
+                icon.className = 'fas fa-plus';
+            } else {
+                document.querySelectorAll('.faq-page-item.active').forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.faq-page-content').style.maxHeight = '0px';
+                    i.querySelector('.faq-page-header i').className = 'fas fa-plus';
+                });
+                item.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.className = 'fas fa-minus';
+            }
+        }
+    </script>
+</body>
+</html>

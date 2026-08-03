@@ -352,7 +352,8 @@
                             <h3 class="widget-title mb-2">Book This Trek</h3>
                             <p class="widget-subtitle mb-4">Reserve your 5days Berber villages &amp; desert today.</p>
                             
-                            <form class="tour-booking-form" id="tourBookingForm">
+                            <form class="tour-booking-form" id="tourBookingForm" action="../send-mail.php" method="POST">
+                                <input type="hidden" name="form_type" value="Tour Booking Request">
                                 <input type="hidden" name="tour_name" value="5days Berber villages &amp; desert">
                                 
                                 <div class="form-group mb-3">
@@ -605,16 +606,17 @@
                     </div>
                 </div>
                 
-                <!-- Col 2: Menu -->
+                                <!-- Col 2: Menu -->
                 <div class="footer-col links-col">
                     <h3 class="footer-title">Menu</h3>
                     <ul class="footer-links">
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="../marrakech-day-trips.html">Marrakech day trips</a></li>
-                        <li><a href="../berber-village-treks.html">Berber village treks</a></li>
-                        <li><a href="../climb-mount-toubkal.html">Climb Mount Toubkal</a></li>
+                        <li><a href="../about-us.html">About Us</a></li>
+                        <li><a href="../faq.html">FAQ</a></li>
+                        <li><a href="../marrakech-day-trips.html">Marrakech Day Trips</a></li>
+                        <li><a href="../trek-and-hike.html">Trek &amp; Hike</a></li>
                         <li><a href="../sahara-desert-tours.html">Sahara Desert Tours</a></li>
-                        <li><a href="../morocco-tours.html">Morocco tours</a></li>
+                        <li><a href="../morocco-tours.html">Morocco Tours</a></li>
                         <li><a href="../contact.html">Contact Us</a></li>
                     </ul>
                 </div>
