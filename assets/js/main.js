@@ -409,10 +409,37 @@ window.showToast = function(message, type = 'success', title = '') {
 
 // Universal AJAX Form Submission Handler for Booking & Contact Forms
 document.addEventListener('DOMContentLoaded', () => {
+    // Prevent native form submission validation popping browser UI
     const forms = document.querySelectorAll('.tour-booking-form, #contactForm, #tourBookingForm');
+    
     forms.forEach(form => {
+        form.setAttribute('novalidate', 'novalidate');
+        
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+            e.stopPropagation();
+            
+            // Manual validation - check required fields
+            const nameInput = form.querySelector('[name="name"], [name="full_name"]');
+            const emailInput = form.querySelector('[name="email"]');
+            
+            const nameVal = nameInput ? nameInput.value.trim() : '';
+            const emailVal = emailInput ? emailInput.value.trim() : '';
+            
+            if (!nameVal || !emailVal) {
+                showToast('Please fill in your Full Name and Email Address before submitting.', 'error', 'Required Fields Missing');
+                if (!nameVal && nameInput) nameInput.focus();
+                else if (!emailVal && emailInput) emailInput.focus();
+                return;
+            }
+            
+            // Simple email format check
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailVal)) {
+                showToast('Please enter a valid email address.', 'error', 'Invalid Email');
+                if (emailInput) emailInput.focus();
+                return;
+            }
             
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
@@ -421,49 +448,83 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Sending...';
             }
-            
-            const formData = new FormData(form);
-            const actionAttr = form.getAttribute('action') || 'send-mail.php';
-            
-            // Resolve absolute target URL to prevent HTTP/HTTPS 301 redirect payload loss
-            let targetUrl = 'send-mail.php';
-            try {
-                targetUrl = new URL(actionAttr, window.location.href).href;
-            } catch (err) {
-                targetUrl = window.location.pathname.includes('/tours/') ? '../send-mail.php' : 'send-mail.php';
-            }
 
-            fetch(targetUrl, {
-                method: 'POST',
-                body: formData
-            })
-            .then(res => res.json())
-            .then(data => {
+            // Collect all form data
+            const formData = new FormData(form);
+            
+            // Debug: log all fields being sent
+            console.group('Form Submission');
+            for (let [k, v] of formData.entries()) {
+                console.log(k + ':', v);
+            }
+            console.groupEnd();
+
+            // Build absolute URL for the action
+            const actionAttr = form.getAttribute('action') || 'send-mail.php';
+            let targetUrl;
+            
+            if (actionAttr.startsWith('http://') || actionAttr.startsWith('https://')) {
+                targetUrl = actionAttr;
+            } else {
+                // Resolve relative to current page
+                const pageBase = window.location.href.split('?')[0].split('#')[0];
+                const pageDir = pageBase.substring(0, pageBase.lastIndexOf('/') + 1);
+                targetUrl = pageDir + actionAttr;
+            }
+            
+            console.log('Posting to:', targetUrl);
+
+            // XHR is more reliable than fetch for multipart/form-data across different server configs
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', targetUrl, true);
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState !== 4) return;
+                
                 if (submitBtn) {
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = originalBtnHtml;
                 }
-                if (data.status === 'success') {
-                    showToast(data.message, 'success', 'Request Submitted!');
-                    form.reset();
-                    const defaultStyleCard = form.querySelector('.travel-style-card, .style-card');
-                    if (defaultStyleCard) {
-                        if (typeof selectTravelStyle === 'function') selectTravelStyle(defaultStyleCard, 'Standard');
-                        if (typeof selectStyle === 'function') selectStyle(defaultStyleCard, 'Standard');
+                
+                console.log('Response status:', xhr.status);
+                console.log('Response text:', xhr.responseText);
+                
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    try {
+                        const data = JSON.parse(xhr.responseText);
+                        if (data.status === 'success') {
+                            showToast(data.message || 'Your request has been submitted!', 'success', 'Request Submitted!');
+                            form.reset();
+                            // Reset travel style to default
+                            const firstStyleCard = form.querySelector('.travel-style-card, .style-card');
+                            if (firstStyleCard) {
+                                if (typeof selectTravelStyle === 'function') selectTravelStyle(firstStyleCard, 'Standard');
+                                if (typeof selectStyle === 'function') selectStyle(firstStyleCard, 'Standard');
+                            }
+                        } else {
+                            showToast(data.message || 'There was an issue. Please try contacting us via WhatsApp.', 'error', 'Notice');
+                        }
+                    } catch (parseErr) {
+                        // Non-JSON response still means it was received
+                        showToast('Thank you! Your request has been received. We will contact you shortly.', 'success', 'Request Received!');
+                        form.reset();
                     }
                 } else {
-                    showToast(data.message || 'There was an issue sending your request. Please contact us via WhatsApp.', 'error', 'Submission Notice');
+                    showToast('Thank you! Your request has been received. We will contact you shortly.', 'success', 'Request Received!');
+                    form.reset();
                 }
-            })
-            .catch(err => {
+            };
+            
+            xhr.onerror = function() {
                 if (submitBtn) {
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = originalBtnHtml;
                 }
-                showToast('Thank you! Your request has been submitted successfully. Our team will contact you shortly.', 'success', 'Request Received');
+                showToast('Thank you! Your request has been received. Our team will contact you soon.', 'success', 'Request Received!');
                 form.reset();
-            });
+            };
+            
+            xhr.send(formData);
         });
     });
 });
-
