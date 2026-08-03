@@ -13,18 +13,38 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Retrieve POST parameters
+// Flexible name & email parameter retrieval
+$name = '';
+if (!empty($_POST['name'])) $name = trim($_POST['name']);
+elseif (!empty($_POST['full_name'])) $name = trim($_POST['full_name']);
+elseif (!empty($_POST['book-name'])) $name = trim($_POST['book-name']);
+
+$email = '';
+if (!empty($_POST['email'])) $email = trim($_POST['email']);
+elseif (!empty($_POST['book-email'])) $email = trim($_POST['book-email']);
+elseif (!empty($_POST['user_email'])) $email = trim($_POST['user_email']);
+
+$phone = 'N/A';
+if (!empty($_POST['phone'])) $phone = trim($_POST['phone']);
+elseif (!empty($_POST['book-phone'])) $phone = trim($_POST['book-phone']);
+
+$date = '';
+if (!empty($_POST['date'])) $date = trim($_POST['date']);
+elseif (!empty($_POST['book-date'])) $date = trim($_POST['book-date']);
+
+$travelers = '';
+if (!empty($_POST['travelers'])) $travelers = trim($_POST['travelers']);
+elseif (!empty($_POST['book-travelers'])) $travelers = trim($_POST['book-travelers']);
+
 $form_type   = isset($_POST['form_type']) ? trim($_POST['form_type']) : 'Tour Booking Request';
 $tour_name   = isset($_POST['tour_name']) ? trim($_POST['tour_name']) : '';
-$name        = isset($_POST['name']) ? trim($_POST['name']) : '';
-$email       = isset($_POST['email']) ? trim($_POST['email']) : '';
-$phone       = isset($_POST['phone']) ? trim($_POST['phone']) : 'N/A';
-$date        = isset($_POST['date']) ? trim($_POST['date']) : '';
-$travelers   = isset($_POST['travelers']) ? trim($_POST['travelers']) : '';
 $style       = isset($_POST['travel_style']) ? trim($_POST['travel_style']) : '';
 $duration    = isset($_POST['duration']) ? trim($_POST['duration']) : '';
 $includes    = isset($_POST['includes']) ? trim($_POST['includes']) : '';
-$message     = isset($_POST['message']) ? trim($_POST['message']) : '';
+
+$message = '';
+if (!empty($_POST['message'])) $message = trim($_POST['message']);
+elseif (!empty($_POST['book-message'])) $message = trim($_POST['book-message']);
 
 if (empty($name) || empty($email)) {
     echo json_encode(['status' => 'error', 'message' => 'Please provide both your Name and Email address.']);
@@ -158,7 +178,7 @@ foreach ($hosts as $h) {
 if ($sent) {
     echo json_encode(['status' => 'success', 'message' => 'Thank you! Your reservation request has been submitted successfully. Our team will get back to you shortly.']);
 } else {
-    // Native PHP mail() with strict envelope sender (-f info@berber-magic-tours.com) to pass SPF & DKIM
+    // Native PHP mail() with strict envelope sender (-f info@berber-magic-tours.com)
     $headers  = "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
     $headers .= "From: Berber Magic Tours <{$smtp_user}>\r\n";

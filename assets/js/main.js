@@ -370,6 +370,43 @@ window.selectStyle = function(cardElem, styleName) {
     }
 };
 
+// Custom HTML/CSS Toast Notification System
+window.showToast = function(message, type = 'success', title = '') {
+    let container = document.getElementById('custom-toast-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'custom-toast-container';
+        document.body.appendChild(container);
+    }
+    
+    const toast = document.createElement('div');
+    toast.className = `custom-toast ${type}`;
+    
+    const iconClass = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
+    const defaultTitle = type === 'success' ? 'Reservation Sent!' : 'Notice';
+    const toastTitle = title || defaultTitle;
+    
+    toast.innerHTML = `
+        <div class="toast-icon"><i class="${iconClass}"></i></div>
+        <div class="toast-content">
+            <div class="toast-title">${toastTitle}</div>
+            <div class="toast-message">${message}</div>
+        </div>
+        <button class="toast-close" onclick="this.parentElement.remove()">&times;</button>
+    `;
+    
+    container.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 10);
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 400);
+    }, 6000);
+};
+
 // Universal AJAX Form Submission Handler for Booking & Contact Forms
 document.addEventListener('DOMContentLoaded', () => {
     const forms = document.querySelectorAll('.tour-booking-form, #contactForm, #tourBookingForm');
@@ -405,7 +442,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     submitBtn.innerHTML = originalBtnHtml;
                 }
                 if (data.status === 'success') {
-                    alert(data.message);
+                    showToast(data.message, 'success', 'Request Submitted!');
                     form.reset();
                     const defaultStyleCard = form.querySelector('.travel-style-card, .style-card');
                     if (defaultStyleCard) {
@@ -413,7 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (typeof selectStyle === 'function') selectStyle(defaultStyleCard, 'Standard');
                     }
                 } else {
-                    alert(data.message || 'There was an issue sending your request. Please contact us via WhatsApp.');
+                    showToast(data.message || 'There was an issue sending your request. Please contact us via WhatsApp.', 'error', 'Submission Notice');
                 }
             })
             .catch(err => {
@@ -421,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = originalBtnHtml;
                 }
-                alert('Thank you! Your request has been submitted successfully. Our team will contact you shortly.');
+                showToast('Thank you! Your request has been submitted successfully. Our team will contact you shortly.', 'success', 'Request Received');
                 form.reset();
             });
         });
