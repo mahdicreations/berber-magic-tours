@@ -43,7 +43,7 @@ def build_header_html(active_cat="", relative_prefix=""):
             <div class="container top-bar-container">
                 <div class="top-bar-left">
                     <a href="https://wa.me/212653274190" target="_blank"><i class="fab fa-whatsapp"></i> +212 653 274 190</a>
-                    <a href="mailto:contact@berber-magic-tours.com"><i class="far fa-envelope"></i> contact@berber-magic-tours.com</a>
+                    <a href="mailto:info@berber-magic-tours.com"><i class="far fa-envelope"></i> info@berber-magic-tours.com</a>
                 </div>
                 <div class="top-bar-right">
                     <span><i class="fas fa-map-marker-alt"></i> Douar Imlil, Marrakech</span>
@@ -553,7 +553,7 @@ def generate_category_html(cat_config, tours):
                 <h3>Contact Us</h3>
                 <p><i class="fas fa-map-marker-alt text-primary"></i> Douar Imlil, High Atlas, Morocco</p>
                 <p><i class="fab fa-whatsapp text-primary"></i> +212 653 274 190</p>
-                <p><i class="far fa-envelope text-primary"></i> contact@berber-magic-tours.com</p>
+                <p><i class="far fa-envelope text-primary"></i> info@berber-magic-tours.com</p>
             </div>
         </div>
         <div class="footer-bottom text-center py-3" style="border-top: 1px solid rgba(255,255,255,0.1);">

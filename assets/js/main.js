@@ -321,3 +321,28 @@ window.selectTravelStyle = function(cardElem, styleValue) {
         hiddenInput.value = styleValue;
     }
 };
+
+// Mobile Submenu Accordion Handler
+window.toggleMobileSubmenu = function(btnElem) {
+    const parentLi = btnElem.closest('.mobile-dropdown');
+    const submenu = parentLi.querySelector('.mobile-submenu');
+    const icon = btnElem.querySelector('i');
+    
+    if (parentLi.classList.contains('open')) {
+        parentLi.classList.remove('open');
+        submenu.style.maxHeight = null;
+        icon.className = 'fas fa-plus';
+    } else {
+        document.querySelectorAll('.mobile-dropdown.open').forEach(item => {
+            item.classList.remove('open');
+            const sub = item.querySelector('.mobile-submenu');
+            if (sub) sub.style.maxHeight = null;
+            const btn = item.querySelector('.mobile-dropdown-toggle i');
+            if (btn) btn.className = 'fas fa-plus';
+        });
+        parentLi.classList.add('open');
+        submenu.style.maxHeight = submenu.scrollHeight + 'px';
+        icon.className = 'fas fa-minus';
+    }
+};
+

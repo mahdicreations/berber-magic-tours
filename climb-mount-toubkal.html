@@ -125,7 +125,7 @@
             <div class="container top-bar-container">
                 <div class="top-bar-left">
                     <a href="https://wa.me/212653274190" target="_blank"><i class="fab fa-whatsapp"></i> +212 653 274 190</a>
-                    <a href="mailto:contact@berber-magic-tours.com"><i class="far fa-envelope"></i> contact@berber-magic-tours.com</a>
+                    <a href="mailto:info@berber-magic-tours.com"><i class="far fa-envelope"></i> info@berber-magic-tours.com</a>
                 </div>
                 <div class="top-bar-right">
                     <span><i class="fas fa-map-marker-alt"></i> Douar Imlil, Marrakech</span>
@@ -195,7 +195,7 @@
         </div>
     </header>
 
-    <!-- Mobile Menu -->
+        <!-- Mobile Menu -->
     <div class="mobile-menu">
         <div class="mobile-menu-header">
             <img src="assets/images/logo.png" alt="Logo" class="mobile-logo">
@@ -204,18 +204,43 @@
         <ul class="mobile-nav-list">
             <li><a href="index.html">Home</a></li>
             <li><a href="marrakech-day-trips.html">Marrakech Day Trips</a></li>
-            <li><a href="trek-and-hike.html">Trek & Hike</a></li>
-            <li><a href="climb-mount-toubkal.html">- Climb Mount Toubkal</a></li>
-            <li><a href="berber-village-treks.html">- Berber Village Treks</a></li>
-            <li><a href="combine-toubkal-and-villages.html">- Combine Toubkal & Villages</a></li>
-            <li><a href="biking-in-morocco.html">- Biking in Morocco</a></li>
-            <li><a href="combine-atlas-mountains-and-desert.html">Combine Atlas Mountains & Desert</a></li>
-            <li><a href="combine-berber-villages-and-sahara.html">- Combine Berber Villages & Sahara</a></li>
-            <li><a href="combine-toubkal-and-sahara.html">- Combine Toubkal & Sahara</a></li>
-            <li><a href="sahara-desert-tours.html">Sahara Desert Tours</a></li>
-            <li><a href="tours-from-marrakech.html">-- Tours from Marrakech</a></li>
-            <li><a href="tours-from-casablanca.html">-- Tours from Casablanca</a></li>
-            <li><a href="tours-from-fes.html">-- Tours from Fes</a></li>
+            
+            <li class="mobile-dropdown">
+                <div class="mobile-dropdown-header">
+                    <a href="trek-and-hike.html">Trek &amp; Hike</a>
+                    <button type="button" class="mobile-dropdown-toggle" onclick="toggleMobileSubmenu(this)"><i class="fas fa-plus"></i></button>
+                </div>
+                <ul class="mobile-submenu">
+                    <li><a href="climb-mount-toubkal.html" class="active">Climb Mount Toubkal</a></li>
+                    <li><a href="berber-village-treks.html">Berber Village Treks</a></li>
+                    <li><a href="combine-toubkal-and-villages.html">Combine Toubkal &amp; Villages</a></li>
+                    <li><a href="biking-in-morocco.html">Biking in Morocco</a></li>
+                </ul>
+            </li>
+            
+            <li class="mobile-dropdown">
+                <div class="mobile-dropdown-header">
+                    <a href="combine-atlas-mountains-and-desert.html">Combine Atlas Mountains &amp; Desert</a>
+                    <button type="button" class="mobile-dropdown-toggle" onclick="toggleMobileSubmenu(this)"><i class="fas fa-plus"></i></button>
+                </div>
+                <ul class="mobile-submenu">
+                    <li><a href="combine-berber-villages-and-sahara.html">Combine Berber Villages &amp; Sahara</a></li>
+                    <li><a href="combine-toubkal-and-sahara.html">Combine Toubkal &amp; Sahara</a></li>
+                </ul>
+            </li>
+
+            <li class="mobile-dropdown">
+                <div class="mobile-dropdown-header">
+                    <a href="sahara-desert-tours.html">Sahara Desert Tours</a>
+                    <button type="button" class="mobile-dropdown-toggle" onclick="toggleMobileSubmenu(this)"><i class="fas fa-plus"></i></button>
+                </div>
+                <ul class="mobile-submenu">
+                    <li><a href="tours-from-marrakech.html">Tours from Marrakech</a></li>
+                    <li><a href="tours-from-casablanca.html">Tours from Casablanca</a></li>
+                    <li><a href="tours-from-fes.html">Tours from Fes</a></li>
+                </ul>
+            </li>
+
             <li><a href="morocco-tours.html">Morocco Tours</a></li>
         </ul>
         <a href="contact.html" class="btn btn-primary mobile-btn"><i class="fas fa-envelope"></i> Contact Us</a>
@@ -357,7 +382,7 @@
                     <ul class="footer-contact-list">
                         <li><i class="fas fa-map-marker-alt"></i> <span>Douar Imlil Poste Asni 42152 Marrakech</span></li>
                         <li><i class="fab fa-whatsapp"></i> <span>+212 653 274 190</span></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:contact@berber-magic-tours.com">contact@berber-magic-tours.com</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@berber-magic-tours.com">info@berber-magic-tours.com</a></li>
                     </ul>
                     <div class="social-links mt-4">
                         <a href="https://wa.me/212653274190" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>

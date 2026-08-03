@@ -493,15 +493,19 @@ img {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 300px;
+    width: 320px;
+    max-width: 85vw;
     height: 100vh;
+    height: 100dvh;
     background-color: var(--white);
     z-index: 2000;
-    padding: 30px;
-    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    padding: 25px 20px 35px 25px;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.15);
     transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .mobile-menu.open {
@@ -544,6 +548,65 @@ img {
 .mobile-nav-list a.active,
 .mobile-nav-list a:hover {
     color: var(--primary);
+}
+
+/* Mobile Accordion Dropdown Grouping */
+.mobile-dropdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.mobile-dropdown-toggle {
+    background: #F1F5F9;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.mobile-dropdown-toggle:hover,
+.mobile-dropdown.open .mobile-dropdown-toggle {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.mobile-submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease-out;
+    padding-left: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 0;
+}
+
+.mobile-dropdown.open .mobile-submenu {
+    margin-top: 14px;
+}
+
+.mobile-submenu a {
+    font-size: 0.98rem !important;
+    color: #475569 !important;
+    font-weight: 400 !important;
+    padding: 6px 0;
+    display: block;
+    line-height: 1.4;
+}
+
+.mobile-submenu a:hover,
+.mobile-submenu a.active {
+    color: var(--primary) !important;
 }
 
 .mobile-btn {
