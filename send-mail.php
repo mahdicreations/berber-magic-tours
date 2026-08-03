@@ -13,41 +13,59 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+// Combine $_POST, $_REQUEST, and raw php://input
+$params = $_POST;
+if (empty($params)) {
+    $params = $_REQUEST;
+}
+$raw_input = file_get_contents('php://input');
+if (!empty($raw_input)) {
+    $json_params = json_decode($raw_input, true);
+    if (is_array($json_params)) {
+        $params = array_merge($params, $json_params);
+    } else {
+        parse_str($raw_input, $parsed_params);
+        if (is_array($parsed_params)) {
+            $params = array_merge($params, $parsed_params);
+        }
+    }
+}
+
 // Flexible name & email parameter retrieval
 $name = '';
-if (!empty($_POST['name'])) $name = trim($_POST['name']);
-elseif (!empty($_POST['full_name'])) $name = trim($_POST['full_name']);
-elseif (!empty($_POST['book-name'])) $name = trim($_POST['book-name']);
+if (!empty($params['name'])) $name = trim($params['name']);
+elseif (!empty($params['full_name'])) $name = trim($params['full_name']);
+elseif (!empty($params['book-name'])) $name = trim($params['book-name']);
 
 $email = '';
-if (!empty($_POST['email'])) $email = trim($_POST['email']);
-elseif (!empty($_POST['book-email'])) $email = trim($_POST['book-email']);
-elseif (!empty($_POST['user_email'])) $email = trim($_POST['user_email']);
+if (!empty($params['email'])) $email = trim($params['email']);
+elseif (!empty($params['book-email'])) $email = trim($params['book-email']);
+elseif (!empty($params['user_email'])) $email = trim($params['user_email']);
 
 $phone = 'N/A';
-if (!empty($_POST['phone'])) $phone = trim($_POST['phone']);
-elseif (!empty($_POST['book-phone'])) $phone = trim($_POST['book-phone']);
+if (!empty($params['phone'])) $phone = trim($params['phone']);
+elseif (!empty($params['book-phone'])) $phone = trim($params['book-phone']);
 
 $date = '';
-if (!empty($_POST['date'])) $date = trim($_POST['date']);
-elseif (!empty($_POST['book-date'])) $date = trim($_POST['book-date']);
+if (!empty($params['date'])) $date = trim($params['date']);
+elseif (!empty($params['book-date'])) $date = trim($params['book-date']);
 
 $travelers = '';
-if (!empty($_POST['travelers'])) $travelers = trim($_POST['travelers']);
-elseif (!empty($_POST['book-travelers'])) $travelers = trim($_POST['book-travelers']);
+if (!empty($params['travelers'])) $travelers = trim($params['travelers']);
+elseif (!empty($params['book-travelers'])) $travelers = trim($params['book-travelers']);
 
-$form_type   = isset($_POST['form_type']) ? trim($_POST['form_type']) : 'Tour Booking Request';
-$tour_name   = isset($_POST['tour_name']) ? trim($_POST['tour_name']) : '';
-$style       = isset($_POST['travel_style']) ? trim($_POST['travel_style']) : '';
-$duration    = isset($_POST['duration']) ? trim($_POST['duration']) : '';
-$includes    = isset($_POST['includes']) ? trim($_POST['includes']) : '';
+$form_type   = isset($params['form_type']) ? trim($params['form_type']) : 'Tour Booking Request';
+$tour_name   = isset($params['tour_name']) ? trim($params['tour_name']) : '';
+$style       = isset($params['travel_style']) ? trim($params['travel_style']) : '';
+$duration    = isset($params['duration']) ? trim($params['duration']) : '';
+$includes    = isset($params['includes']) ? trim($params['includes']) : '';
 
 $message = '';
-if (!empty($_POST['message'])) $message = trim($_POST['message']);
-elseif (!empty($_POST['book-message'])) $message = trim($_POST['book-message']);
+if (!empty($params['message'])) $message = trim($params['message']);
+elseif (!empty($params['book-message'])) $message = trim($params['book-message']);
 
 if (empty($name) || empty($email)) {
-    echo json_encode(['status' => 'error', 'message' => 'Please provide both your Name and Email address.']);
+    echo json_encode(['status' => 'error', 'message' => 'Please fill in both your Full Name and Email address.']);
     exit;
 }
 

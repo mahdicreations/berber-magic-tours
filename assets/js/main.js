@@ -423,12 +423,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             const formData = new FormData(form);
-            const actionAttr = form.getAttribute('action');
-            let targetUrl = actionAttr && actionAttr !== '#' ? actionAttr : 'send-mail.php';
+            const actionAttr = form.getAttribute('action') || 'send-mail.php';
             
-            // Adjust path if on a tour subfolder page
-            if (window.location.pathname.includes('/tours/') && !targetUrl.startsWith('../')) {
-                targetUrl = '../' + targetUrl;
+            // Resolve absolute target URL to prevent HTTP/HTTPS 301 redirect payload loss
+            let targetUrl = 'send-mail.php';
+            try {
+                targetUrl = new URL(actionAttr, window.location.href).href;
+            } catch (err) {
+                targetUrl = window.location.pathname.includes('/tours/') ? '../send-mail.php' : 'send-mail.php';
             }
 
             fetch(targetUrl, {
