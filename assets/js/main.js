@@ -527,4 +527,102 @@ document.addEventListener('DOMContentLoaded', () => {
             xhr.send(formData);
         });
     });
+
+    // ==========================================================================
+    // Creative Mobile Floating Sticky Booking CTA Bar
+    // ==========================================================================
+    function initMobileStickyBookingBar() {
+        // Find booking target element on current page
+        const targetElement = 
+            document.querySelector('#tourBookingForm') ||
+            document.querySelector('.tour-booking-form') ||
+            document.querySelector('#expeditionForm') ||
+            document.querySelector('#design-trip') ||
+            document.querySelector('#contactForm') ||
+            document.querySelector('#contact');
+
+        // Create the sticky bar HTML element
+        const stickyBar = document.createElement('div');
+        stickyBar.className = 'mobile-sticky-bar';
+        stickyBar.id = 'mobileStickyBookingBar';
+
+        const isTourPage = document.querySelector('#tourBookingForm') || document.querySelector('.tour-booking-form');
+        const badgeText = isTourPage ? 'Instant Reserve' : 'Tailor-Made Tour';
+        const titleText = isTourPage ? 'Book This Tour' : 'Design Your Trip';
+
+        stickyBar.innerHTML = `
+            <div class="mobile-sticky-info">
+                <span class="mobile-sticky-badge"><i class="fas fa-shield-alt"></i> ${badgeText}</span>
+                <span class="mobile-sticky-title">${titleText}</span>
+            </div>
+            <button type="button" class="mobile-sticky-btn" id="mobileStickyBtn">
+                <span>Book Now</span>
+                <i class="fas fa-arrow-down"></i>
+            </button>
+        `;
+
+        document.body.appendChild(stickyBar);
+
+        const mobileStickyBtn = document.getElementById('mobileStickyBtn');
+
+        // Smooth scroll action on click
+        mobileStickyBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (targetElement) {
+                // Smooth scroll to form
+                const yOffset = -70; // Header offset
+                const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+
+                // Highlight/Focus first input field after scroll
+                setTimeout(() => {
+                    const firstInput = targetElement.querySelector('input:not([type="hidden"]), select, textarea');
+                    if (firstInput) {
+                        firstInput.focus();
+                        firstInput.classList.add('pulse-focus');
+                        setTimeout(() => firstInput.classList.remove('pulse-focus'), 1500);
+                    }
+                }, 600);
+            } else {
+                // Fallback to WhatsApp chat
+                window.open('https://wa.me/212653274190?text=Hello!%20I%20want%20to%20book%20a%20tour%20with%20Berber%20Magic%20Tours.', '_blank');
+            }
+        });
+
+        // Visibility on scroll
+        function handleStickyBarScroll() {
+            if (window.innerWidth > 768) {
+                stickyBar.classList.remove('visible');
+                return;
+            }
+
+            const scrollY = window.scrollY || window.pageYOffset;
+
+            // Hide if near the top (less than 220px)
+            if (scrollY < 220) {
+                stickyBar.classList.remove('visible');
+                return;
+            }
+
+            // Hide if the target form itself is visible in the viewport
+            if (targetElement) {
+                const rect = targetElement.getBoundingClientRect();
+                const isFormInView = (rect.top <= window.innerHeight && rect.bottom >= 0);
+                if (isFormInView) {
+                    stickyBar.classList.remove('visible');
+                    return;
+                }
+            }
+
+            // Otherwise, show the floating sticky bar!
+            stickyBar.classList.add('visible');
+        }
+
+        window.addEventListener('scroll', handleStickyBarScroll);
+        window.addEventListener('resize', handleStickyBarScroll);
+        handleStickyBarScroll();
+    }
+
+    // Initialize sticky booking bar
+    initMobileStickyBookingBar();
 });

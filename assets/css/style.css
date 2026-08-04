@@ -3389,6 +3389,201 @@ img {
     font-size: 1.1rem;
     cursor: pointer;
     padding: 0;
+}
+/* ==========================================================================
+   Simple Compact Included / Not Included
+   ========================================================================== */
+.simple-inc-section { margin-top: 2.5rem; }
+
+.simple-inc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.simple-inc-card {
+    background: white;
+    border-radius: 12px;
+    padding: 22px 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.simple-inc-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.simple-inc-title.green { color: #16a34a; }
+.simple-inc-title.red   { color: #dc2626; }
+
+.simple-inc-list {
+    list-style: none;
+    padding: 0; margin: 0;
+}
+.simple-inc-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0;
+    font-size: 0.93rem;
+    color: #444;
+    border-bottom: 1px dashed #f0f0f0;
+}
+.simple-inc-list li:last-child { border-bottom: none; }
+.simple-inc-list li i.fa-check { color: #22c55e; font-size: 0.8rem; flex-shrink: 0; }
+.simple-inc-list li i.fa-times  { color: #ef4444; font-size: 0.8rem; flex-shrink: 0; }
+
+@media (max-width: 768px) {
+    .simple-inc-grid { grid-template-columns: 1fr; }
+}
+/* ==========================================================================
+   Tour Map Section
+   ========================================================================== */
+.tour-map-section h3 {
+    font-family: var(--font-heading);
+    color: var(--secondary);
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid rgba(211, 97, 53, 0.2);
+    padding-bottom: 12px;
+}
+
+.tour-map-wrapper {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+}
+
+.map-info-strip {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.map-info-strip span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.map-info-strip i {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .tour-map-wrapper iframe { height: 260px !important; }
+    .map-info-strip { gap: 12px; }
+    .map-info-strip span { font-size: 0.82rem; }
+}
+
+/* ==========================================================================
+   Custom Toast Notification System
+   ========================================================================== */
+#custom-toast-container {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 999999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 420px;
+    width: 90%;
+    pointer-events: none;
+}
+
+.custom-toast {
+    pointer-events: auto;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 16px 20px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    border-left: 5px solid var(--primary);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    transform: translateX(120%);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.custom-toast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.custom-toast.success {
+    border-left-color: #10B981;
+}
+
+.custom-toast.success .toast-icon {
+    color: #10B981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.custom-toast.error {
+    border-left-color: #EF4444;
+}
+
+.custom-toast.error .toast-icon {
+    color: #EF4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.toast-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.toast-content {
+    flex-grow: 1;
+}
+
+.toast-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #1E293B;
+    margin-bottom: 2px;
+    font-family: var(--font-heading);
+}
+
+.toast-message {
+    font-size: 0.88rem;
+    color: #64748B;
+    line-height: 1.4;
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    color: #94A3B8;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0;
     margin-left: 4px;
     line-height: 1;
     transition: color 0.2s;
@@ -3396,4 +3591,169 @@ img {
 
 .toast-close:hover {
     color: #1E293B;
+}
+
+/* ============================================================
+   Tour Pages — Justified text for Overview & Itinerary
+   Applies to all pages in /tours/ via shared style.css
+   ============================================================ */
+
+/* Tour Overview paragraph */
+.tour-content-block.premium-card p.lead-text,
+.tour-content-block p.lead-text {
+    text-align: justify;
+    text-align-last: left;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Detailed Itinerary — each day description paragraph */
+.itinerary-timeline-premium .timeline-content p,
+.timeline-content p {
+    text-align: justify;
+    text-align-last: left;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Fine-tune on mobile screens */
+@media (max-width: 768px) {
+    .tour-content-block.premium-card p.lead-text,
+    .tour-content-block p.lead-text,
+    .itinerary-timeline-premium .timeline-content p,
+    .timeline-content p {
+        text-align: justify;
+        font-size: 0.95rem;
+        line-height: 1.75;
+    }
+}
+
+/* Developer Signature */
+.footer-bottom {
+    flex-wrap: wrap;
+}
+.footer-signature {
+    width: 100%;
+    text-align: center;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+.footer-signature a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+.footer-signature a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+.footer-signature i {
+    color: #e11d48;
+    margin: 0 3px;
+}
+
+/* ==========================================================================
+   Creative Mobile Floating Sticky Booking CTA Bar
+   ========================================================================== */
+.mobile-sticky-bar {
+    display: none; /* Hidden by default on desktop */
+}
+
+@media (max-width: 768px) {
+    .mobile-sticky-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        bottom: 16px;
+        left: 14px;
+        right: 14px;
+        z-index: 9999;
+        background: rgba(18, 30, 49, 0.94);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 10px 14px 10px 18px;
+        border-radius: 50px;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35), 0 0 20px rgba(211, 97, 53, 0.25);
+        transform: translateY(150%);
+        opacity: 0;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    .mobile-sticky-bar.visible {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .mobile-sticky-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .mobile-sticky-badge {
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .mobile-sticky-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #ffffff;
+        font-family: var(--font-heading);
+        margin-top: 1px;
+        line-height: 1.2;
+    }
+
+    .mobile-sticky-btn {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        color: #ffffff !important;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(211, 97, 53, 0.4);
+        transition: all 0.25s ease;
+        text-decoration: none !important;
+    }
+
+    .mobile-sticky-btn:active {
+        transform: scale(0.96);
+        box-shadow: 0 2px 8px rgba(211, 97, 53, 0.4);
+    }
+
+    .mobile-sticky-btn i.fa-arrow-down {
+        animation: stickyBounce 1.5s infinite;
+        font-size: 0.8rem;
+    }
+
+    @keyframes stickyBounce {
+        0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+        40% { transform: translateY(4px); }
+        60% { transform: translateY(2px); }
+    }
 }

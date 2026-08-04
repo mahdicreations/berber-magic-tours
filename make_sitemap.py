@@ -20,14 +20,15 @@ url_entries.append(f"""  <url>
 for f in root_files:
     if f == 'index.html':
         continue
-    if f in ['about-us.html', 'contact.html', 'faq.html']:
+    slug = f[:-5]
+    if f in ['about-us.html', 'contact.html', 'faq.html', 'privacy-policy.html', 'terms-conditions.html']:
         priority = '0.7'
         changefreq = 'monthly'
     else:
         priority = '0.9'
         changefreq = 'weekly'
     url_entries.append(f"""  <url>
-    <loc>{domain}/{f}</loc>
+    <loc>{domain}/{slug}</loc>
     <lastmod>{today}</lastmod>
     <changefreq>{changefreq}</changefreq>
     <priority>{priority}</priority>
@@ -35,6 +36,8 @@ for f in root_files:
 
 for f in tour_files:
     clean_path = f.replace('\\', '/')
+    if clean_path.endswith('.html'):
+        clean_path = clean_path[:-5]
     url_entries.append(f"""  <url>
     <loc>{domain}/{clean_path}</loc>
     <lastmod>{today}</lastmod>
