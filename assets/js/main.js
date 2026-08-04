@@ -529,31 +529,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================================================
-    // Creative Mobile Floating Sticky Booking CTA Bar
+    // Creative Mobile Floating Sticky Booking CTA Bar (Tours Only)
     // ==========================================================================
     function initMobileStickyBookingBar() {
-        // Find booking target element on current page
-        const targetElement = 
-            document.querySelector('#tourBookingForm') ||
-            document.querySelector('.tour-booking-form') ||
-            document.querySelector('#expeditionForm') ||
-            document.querySelector('#design-trip') ||
-            document.querySelector('#contactForm') ||
-            document.querySelector('#contact');
+        // Restrict strictly to Tour pages (must have tour booking form or be inside /tours/)
+        const tourForm = document.querySelector('#tourBookingForm') || document.querySelector('.tour-booking-form');
+        const isTourUrl = window.location.pathname.includes('/tours/');
+
+        if (!tourForm && !isTourUrl) {
+            return; // Exit immediately for non-tour pages!
+        }
+
+        // Target element for smooth scroll
+        const targetElement = tourForm || document.querySelector('.tour-sidebar') || document.querySelector('#contact');
 
         // Create the sticky bar HTML element
         const stickyBar = document.createElement('div');
         stickyBar.className = 'mobile-sticky-bar';
         stickyBar.id = 'mobileStickyBookingBar';
 
-        const isTourPage = document.querySelector('#tourBookingForm') || document.querySelector('.tour-booking-form');
-        const badgeText = isTourPage ? 'Instant Reserve' : 'Tailor-Made Tour';
-        const titleText = isTourPage ? 'Book This Tour' : 'Design Your Trip';
-
         stickyBar.innerHTML = `
             <div class="mobile-sticky-info">
-                <span class="mobile-sticky-badge"><i class="fas fa-shield-alt"></i> ${badgeText}</span>
-                <span class="mobile-sticky-title">${titleText}</span>
+                <span class="mobile-sticky-badge"><i class="fas fa-shield-alt"></i> Instant Reserve</span>
+                <span class="mobile-sticky-title">Book This Tour</span>
             </div>
             <button type="button" class="mobile-sticky-btn" id="mobileStickyBtn">
                 <span>Book Now</span>
