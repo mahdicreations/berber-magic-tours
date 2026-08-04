@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
     <meta property="og:image" content="https://berber-magic-tours.com/assets/images/logo.png">
     <meta property="og:url" content="https://berber-magic-tours.com/contact">
     <meta property="og:type" content="website">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Style+Script&display=swap" rel="stylesheet">
@@ -150,7 +150,7 @@
 
         <div class="container header-container">
             <div class="logo">
-                <a href="/"><img src="assets/images/logo.png" alt="Berber Magic Tours"></a>
+                <a href="/"><img src="/assets/images/logo.png" alt="Berber Magic Tours"></a>
             </div>
             
             <nav class="nav">
@@ -208,7 +208,7 @@
         <!-- Mobile Menu -->
     <div class="mobile-menu">
         <div class="mobile-menu-header">
-            <img src="assets/images/logo.png" alt="Logo" class="mobile-logo">
+            <img src="/assets/images/logo.png" alt="Logo" class="mobile-logo">
             <button class="close-menu-btn"><i class="fas fa-times"></i></button>
         </div>
         <ul class="mobile-nav-list">
@@ -257,7 +257,7 @@
     </div>
 
     <!-- Compact Hero Banner -->
-    <section class="page-header" style="padding: 50px 0 45px 0; background: linear-gradient(180deg, rgba(18, 30, 49, 0.88) 0%, rgba(18, 30, 49, 0.95) 100%), url('assets/images/slide1.png') center/cover no-repeat; text-align: center; position: relative;">
+    <section class="page-header" style="padding: 50px 0 45px 0; background: linear-gradient(180deg, rgba(18, 30, 49, 0.88) 0%, rgba(18, 30, 49, 0.95) 100%), url('/assets/images/slide1.png') center/cover no-repeat; text-align: center; position: relative;">
         <div class="container" style="position: relative; z-index: 2;">
             <span style="color: var(--primary); font-weight: 600; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">Reach Out To Local Experts</span>
             <h1 style="font-size: 2.4rem; font-family: var(--font-heading); color: #ffffff; margin-bottom: 8px;">Contact Berber Magic Tours</h1>
@@ -379,19 +379,19 @@
                             <label style="display: block; font-weight: 700; font-size: 1rem; color: #1E293B; margin-bottom: 12px;">Travel Style</label>
                             <div class="style-cards" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
                                 
-                                <div class="style-card active" onclick="selectStyle(this, 'Standard')">
+                                <div class="style-card active" onclick="selectTravelStyle(this, 'Standard')">
                                     <div class="style-icon"><i class="fas fa-wallet"></i></div>
                                     <div class="style-title">Standard</div>
                                     <div class="style-sub">Authentic &amp; Simple</div>
                                 </div>
 
-                                <div class="style-card" onclick="selectStyle(this, 'Comfort')">
+                                <div class="style-card" onclick="selectTravelStyle(this, 'Comfort')">
                                     <div class="style-icon"><i class="fas fa-hotel"></i></div>
                                     <div class="style-title">Comfort</div>
                                     <div class="style-sub">3-4★ Riads &amp; Camps</div>
                                 </div>
 
-                                <div class="style-card" onclick="selectStyle(this, 'Luxury')">
+                                <div class="style-card" onclick="selectTravelStyle(this, 'Luxury')">
                                     <div class="style-icon"><i class="fas fa-crown"></i></div>
                                     <div class="style-title">Luxury</div>
                                     <div class="style-sub">5★ Riads &amp; Glamping</div>
@@ -441,7 +441,7 @@
             <div class="footer-grid">
                 <!-- Col 1: About -->
                 <div class="footer-col about-col">
-                    <img src="assets/images/logo.png" alt="Berber Magic Tours" class="footer-logo">
+                    <img src="/assets/images/logo.png" alt="Berber Magic Tours" class="footer-logo">
                     <p class="footer-desc">Experience the magic of Morocco through the eyes of Locals. Let us help you find a journey of a lifetime.</p>
                     <ul class="footer-contact-list">
                         <li><i class="fas fa-map-marker-alt"></i> <span>Douar Imlil Poste Asni 42152 Marrakech</span></li>
@@ -467,6 +467,7 @@
                         <li><a href="trek-and-hike">Trek &amp; Hike</a></li>
                         <li><a href="sahara-desert-tours">Sahara Desert Tours</a></li>
                         <li><a href="morocco-tours">Morocco Tours</a></li>
+                        <li><a href="/blog">Blog</a></li>
                         <li><a href="contact">Contact Us</a></li>
                     </ul>
                 </div>
@@ -518,14 +519,25 @@
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script src="/assets/js/main.js?v=1.1"></script>
     <script>
         function toggleTag(btn) {
-            btn.classList.toggle('active');
+            var container = btn.closest('.include-tags') || btn.parentElement;
+            if (container) {
+                container.querySelectorAll('.tag-pill').forEach(function(p) {
+                    p.classList.remove('active');
+                });
+            }
+            btn.classList.add('active');
+            var hiddenInput = document.getElementById('contact-includes');
+            if (hiddenInput) {
+                hiddenInput.value = btn.textContent ? btn.textContent.trim() : '';
+            }
         }
-        function selectStyle(card) {
-            document.querySelectorAll('.style-card').forEach(c => c.classList.remove('active'));
-            card.classList.add('active');
+        function selectStyle(card, styleName) {
+            if (typeof selectTravelStyle === 'function') {
+                selectTravelStyle(card, styleName);
+            }
         }
     </script>
 </body>

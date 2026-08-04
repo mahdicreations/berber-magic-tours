@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     }
 
-    mobileMenuBtn.addEventListener('click', openMenu);
-    closeMenuBtn.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
+    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMenu);
+    if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
+    if (overlay) overlay.addEventListener('click', closeMenu);
 
     // Sticky Header
     const header = document.getElementById('header');
@@ -304,23 +304,6 @@ document.addEventListener('DOMContentLoaded', () => {
         wrapper.addEventListener('mouseleave', () => startAutoPlay());
     }
 });
-
-// Travel Style Selector Handler
-window.selectTravelStyle = function(cardElem, styleValue) {
-    const parent = cardElem.parentElement;
-    parent.querySelectorAll('.travel-style-card').forEach(c => {
-        c.style.border = '1px solid #E2E8F0';
-        c.style.background = '#FFFFFF';
-        c.classList.remove('active');
-    });
-    cardElem.style.border = '2px solid #D95D39';
-    cardElem.style.background = '#FFF7F2';
-    cardElem.classList.add('active');
-    const hiddenInput = parent.parentElement.querySelector('input[name="travel_style"]');
-    if (hiddenInput) {
-        hiddenInput.value = styleValue;
-    }
-};
 
 // Mobile Submenu Accordion Handler
 window.toggleMobileSubmenu = function(btnElem) {
@@ -624,3 +607,47 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize sticky booking bar
     initMobileStickyBookingBar();
 });
+
+// ==========================================================================
+// Travel Style Selector – Compact Booking Form
+// Global function (called via inline onclick on travel style cards)
+// ==========================================================================
+function selectTravelStyle(element, style) {
+    var card = (element && (element.classList.contains('bk-style-card') || element.classList.contains('travel-style-card') || element.classList.contains('style-card')))
+        ? element
+        : (element ? element.closest('.bk-style-card, .travel-style-card, .style-card') : null);
+
+    if (!card) return;
+
+    var scope = card.closest('form') || card.closest('.bk-style-options') || card.closest('.travel-style-options') || card.parentElement;
+    if (scope) {
+        var allCards = scope.querySelectorAll('.bk-style-card, .travel-style-card, .style-card');
+        allCards.forEach(function(c) {
+            c.classList.remove('active');
+            c.removeAttribute('style');
+        });
+    }
+
+    card.classList.add('active');
+
+    var form = card.closest('form');
+    if (form) {
+        var hiddenInput = form.querySelector('input[name="travel_style"]');
+        if (hiddenInput && style) {
+            hiddenInput.value = style;
+        }
+    }
+}
+
+window.selectTravelStyle = selectTravelStyle;
+
+// Global click delegate for travel style cards
+document.addEventListener('click', function(e) {
+    var card = e.target.closest('.bk-style-card, .travel-style-card, .style-card');
+    if (card) {
+        var styleName = card.textContent ? card.textContent.trim() : '';
+        selectTravelStyle(card, styleName);
+    }
+});
+
+

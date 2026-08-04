@@ -11,7 +11,7 @@
     <meta property="og:image" content="https://berber-magic-tours.com/assets/images/logo.png">
     <meta property="og:url" content="https://berber-magic-tours.com/berber-village-treks">
     <meta property="og:type" content="website">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Style+Script&display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@
         #header.header .mobile-menu-btn { color: var(--secondary) !important; }
 
         .category-hero {
-            background-image: url('tours/images/2days-atlas-mountains-valleys/Atlas-mountains-valleys.jpg');
+            background-image: url('/tours/images/2days-atlas-mountains-valleys/Atlas-mountains-valleys.jpg');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -122,6 +122,21 @@
             padding: 10px 22px;
             font-size: 0.9rem;
         }
+    
+        /* High Contrast White Title for Category Hero */
+        .category-hero h1, .category-hero .section-title, .page-header h1 {
+            color: #ffffff !important;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7) !important;
+        }
+        .category-hero .subtitle {
+            color: var(--primary) !important;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6) !important;
+        }
+        .category-hero .breadcrumb, .category-hero .breadcrumb a {
+            color: #ffffff !important;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
+        }
+        
     </style>
 </head>
 <body>
@@ -146,7 +161,7 @@
 
         <div class="container header-container">
             <div class="logo">
-                <a href="/"><img src="assets/images/logo.png" alt="Berber Magic Tours"></a>
+                <a href="/"><img src="/assets/images/logo.png" alt="Berber Magic Tours"></a>
             </div>
             
             <nav class="nav">
@@ -204,7 +219,7 @@
         <!-- Mobile Menu -->
     <div class="mobile-menu">
         <div class="mobile-menu-header">
-            <img src="assets/images/logo.png" alt="Logo" class="mobile-logo">
+            <img src="/assets/images/logo.png" alt="Logo" class="mobile-logo">
             <button class="close-menu-btn"><i class="fas fa-times"></i></button>
         </div>
         <ul class="mobile-nav-list">
@@ -276,7 +291,7 @@
                 
                 <!-- Tour Card: 2days Atlas Mountains &amp; valleys -->
                 <div class="tour-card-premium">
-                    <div class="tour-card-image" style="background-image: url('tours/images/2days-atlas-mountains-valleys/Atlas-mountains-valleys.jpg');">
+                    <div class="tour-card-image" style="background-image: url('/tours/images/2days-atlas-mountains-valleys/Atlas-mountains-valleys.jpg');">
                         <div class="tour-card-overlay"></div>
                         <div class="tour-cat-badge">Berber Village Treks</div>
                     </div>
@@ -289,14 +304,14 @@
                         <p class="tour-card-text mb-4">Escape to a peaceful mountain guesthouse in Imlil Valley, enjoying guided walks, Berber hospitality, and scenic terrace dining.</p>
                         <div class="tour-card-footer">
                             <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
-                            <a href="tours/2days-atlas-mountains-valleys" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                            <a href="/tours/2days-atlas-mountains-valleys" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tour Card: 2 days Azzaden valley trek -->
                 <div class="tour-card-premium">
-                    <div class="tour-card-image" style="background-image: url('tours/images/2days-azzaden-valley/Atlas-mountains-valleys-1.jpg');">
+                    <div class="tour-card-image" style="background-image: url('/tours/images/2days-azzaden-valley/Atlas-mountains-valleys-1.jpg');">
                         <div class="tour-card-overlay"></div>
                         <div class="tour-cat-badge">Berber Village Treks</div>
                     </div>
@@ -309,14 +324,14 @@
                         <p class="tour-card-text mb-4">Discover the breathtaking scenery of High Atlas valleys, rustic clay villages, and terraced fields on an authentic 2-day guided mountain trek.</p>
                         <div class="tour-card-footer">
                             <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
-                            <a href="tours/2days-azzaden-valley" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                            <a href="/tours/2days-azzaden-valley" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tour Card: 3 days hiking Atlas Mountains -->
                 <div class="tour-card-premium">
-                    <div class="tour-card-image" style="background-image: url('tours/images/3-day-hiking-atlas-mountains/3day-hiking-Atlas-Mountains.jpg');">
+                    <div class="tour-card-image" style="background-image: url('/tours/images/3-day-hiking-atlas-mountains/3day-hiking-Atlas-Mountains.jpg');">
                         <div class="tour-card-overlay"></div>
                         <div class="tour-cat-badge">Berber Village Treks</div>
                     </div>
@@ -329,14 +344,14 @@
                         <p class="tour-card-text mb-4">Hike through the colorful red clay villages of Azzaden Valley, majestic juniper forests, and mountain streams with local Berber hospitality.</p>
                         <div class="tour-card-footer">
                             <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
-                            <a href="tours/3-day-hiking-atlas-mountains" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                            <a href="/tours/3-day-hiking-atlas-mountains" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tour Card: 3 days Atlas Mountain trek &amp; desert Agafay -->
                 <div class="tour-card-premium">
-                    <div class="tour-card-image" style="background-image: url('tours/images/3-days-atlas-mountains-trek-camel-ride/Atlasmountaintrek.jpg-min1.jpg');">
+                    <div class="tour-card-image" style="background-image: url('/tours/images/3-days-atlas-mountains-trek-camel-ride/Atlasmountaintrek.jpg-min1.jpg');">
                         <div class="tour-card-overlay"></div>
                         <div class="tour-cat-badge">Berber Village Treks</div>
                     </div>
@@ -349,14 +364,14 @@
                         <p class="tour-card-text mb-4">Explore the diverse landscapes of Azzaden, Dknt, and Imlil valleys on a scenic 3-day trek through traditional Berber mountain hamlets.</p>
                         <div class="tour-card-footer">
                             <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
-                            <a href="tours/3-days-atlas-mountains-trek-camel-ride" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                            <a href="/tours/3-days-atlas-mountains-trek-camel-ride" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tour Card: 3days in three valleys -->
                 <div class="tour-card-premium">
-                    <div class="tour-card-image" style="background-image: url('tours/images/3days-in-three-valleys/The-Atlas-valleys.jpg');">
+                    <div class="tour-card-image" style="background-image: url('/tours/images/3days-in-three-valleys/The-Atlas-valleys.jpg');">
                         <div class="tour-card-overlay"></div>
                         <div class="tour-cat-badge">Berber Village Treks</div>
                     </div>
@@ -369,14 +384,14 @@
                         <p class="tour-card-text mb-4">Combine high mountain trekking through Berber villages with a scenic camel ride and sunset views over the High Atlas foothills.</p>
                         <div class="tour-card-footer">
                             <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
-                            <a href="tours/3days-in-three-valleys" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                            <a href="/tours/3days-in-three-valleys" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tour Card: 3days to Setti Fattma -->
                 <div class="tour-card-premium">
-                    <div class="tour-card-image" style="background-image: url('tours/images/3days-to-setti-fattma/FB_IMG_1554764268433.jpg');">
+                    <div class="tour-card-image" style="background-image: url('/tours/images/3days-to-setti-fattma/FB_IMG_1554764268433.jpg');">
                         <div class="tour-card-overlay"></div>
                         <div class="tour-cat-badge">Berber Village Treks</div>
                     </div>
@@ -389,14 +404,14 @@
                         <p class="tour-card-text mb-4">Immerse yourself in three distinct Atlas valleys — Imlil, Azzaden, and Matat — trekking through walnut orchards and ancient mountain passes.</p>
                         <div class="tour-card-footer">
                             <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
-                            <a href="tours/3days-to-setti-fattma" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                            <a href="/tours/3days-to-setti-fattma" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tour Card: 4days in four valleys -->
                 <div class="tour-card-premium">
-                    <div class="tour-card-image" style="background-image: url('tours/images/4days-in-four-valleys/4days-in-four-valleys.jpg');">
+                    <div class="tour-card-image" style="background-image: url('/tours/images/4days-in-four-valleys/4days-in-four-valleys.jpg');">
                         <div class="tour-card-overlay"></div>
                         <div class="tour-cat-badge">Berber Village Treks</div>
                     </div>
@@ -409,14 +424,14 @@
                         <p class="tour-card-text mb-4">Follow scenic waterfall trails and green riverbank paths through Ourika Valley up to Setti Fattma's famous cascading mountain streams.</p>
                         <div class="tour-card-footer">
                             <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
-                            <a href="tours/4days-in-four-valleys" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                            <a href="/tours/4days-in-four-valleys" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tour Card: 5 days Atlas mountain trek &amp; camel ride -->
                 <div class="tour-card-premium">
-                    <div class="tour-card-image" style="background-image: url('tours/images/5-days-atlas-mountain-trek/Moroccotrips.jpg');">
+                    <div class="tour-card-image" style="background-image: url('/tours/images/5-days-atlas-mountain-trek/Moroccotrips.jpg');">
                         <div class="tour-card-overlay"></div>
                         <div class="tour-cat-badge">Berber Village Treks</div>
                     </div>
@@ -429,14 +444,14 @@
                         <p class="tour-card-text mb-4">Trek through four legendary Atlas valleys — Imlil, Azzaden, Dknt, and Imnane — offering unparalleled views of authentic mountain life.</p>
                         <div class="tour-card-footer">
                             <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
-                            <a href="tours/5-days-atlas-mountain-trek" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                            <a href="/tours/5-days-atlas-mountain-trek" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tour Card: Overnight in Atlas mountains -->
                 <div class="tour-card-premium">
-                    <div class="tour-card-image" style="background-image: url('tours/images/overnight-in-atlas-mountains/Atlasmountain-1.jpg');">
+                    <div class="tour-card-image" style="background-image: url('/tours/images/overnight-in-atlas-mountains/Atlasmountain-1.jpg');">
                         <div class="tour-card-overlay"></div>
                         <div class="tour-cat-badge">Berber Village Treks</div>
                     </div>
@@ -449,7 +464,7 @@
                         <p class="tour-card-text mb-4">Traverse deep High Atlas valleys, high altitude mountain passes, remote Berber settlements, and dramatic mountain ridges over 5 scenic days.</p>
                         <div class="tour-card-footer">
                             <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
-                            <a href="tours/overnight-in-atlas-mountains" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                            <a href="/tours/overnight-in-atlas-mountains" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -463,7 +478,7 @@
             <div class="footer-grid">
                 <!-- Col 1: About -->
                 <div class="footer-col about-col">
-                    <img src="assets/images/logo.png" alt="Berber Magic Tours" class="footer-logo">
+                    <img src="/assets/images/logo.png" alt="Berber Magic Tours" class="footer-logo">
                     <p class="footer-desc">Experience the magic of Morocco through the eyes of Locals. Let us help you find a journey of a lifetime.</p>
                     <ul class="footer-contact-list">
                         <li><i class="fas fa-map-marker-alt"></i> <span>Douar Imlil Poste Asni 42152 Marrakech</span></li>
@@ -489,7 +504,8 @@
                         <li><a href="trek-and-hike">Trek &amp; Hike</a></li>
                         <li><a href="sahara-desert-tours">Sahara Desert Tours</a></li>
                         <li><a href="morocco-tours">Morocco Tours</a></li>
-                        <li><a href="contact">Contact Us</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
                     </ul>
                 </div>
                 
@@ -534,13 +550,13 @@
                     <a href="terms-conditions">Terms &amp; Conditions</a>
                 </div>
             <div class="footer-signature">
-                Designed with <i class="fas fa-heart"></i> by <a href="https://mahdicreations.dev" target="_blank" rel="noopener">mahdicreations.dev</a>
+                Designed with <i class="fas fa-heart" style="color: #D95D39;"></i> by <a href="https://mahdicreations.dev" target="_blank" rel="noopener" style="color: #ffffff; text-decoration: underline;">mahdicreations.dev</a>
             </div>
             </div>
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script src="/assets/js/main.js?v=1.1"></script>
 </body>
 </html>
 

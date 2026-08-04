@@ -11,7 +11,7 @@
     <meta property="og:image" content="https://berber-magic-tours.com/assets/images/logo.png">
     <meta property="og:url" content="https://berber-magic-tours.com/tours/4days-berber-villages-toubkal">
     <meta property="og:type" content="website">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Style+Script&display=swap" rel="stylesheet">
@@ -68,7 +68,7 @@
 
         <div class="container header-container">
             <div class="logo">
-                <a href="../index"><img src="../assets/images/logo.png" alt="Berber Magic Tours"></a>
+                <a href="../index"><img src="/assets/images/logo.png" alt="Berber Magic Tours"></a>
             </div>
             
             <nav class="nav">
@@ -126,7 +126,7 @@
         <!-- Mobile Menu -->
     <div class="mobile-menu">
         <div class="mobile-menu-header">
-            <img src="../assets/images/logo.png" alt="Logo" class="mobile-logo">
+            <img src="/assets/images/logo.png" alt="Logo" class="mobile-logo">
             <button class="close-menu-btn"><i class="fas fa-times"></i></button>
         </div>
         <ul class="mobile-nav-list">
@@ -337,66 +337,74 @@
                             <h3 class="widget-title mb-2">Book This Trek</h3>
                             <p class="widget-subtitle mb-4">Reserve your 4days Berber villages &amp; Toubkal today.</p>
                             
-                            <form class="tour-booking-form" id="tourBookingForm" action="send-mail.php" method="POST">
+                                                        <form class="tour-booking-form" id="tourBookingForm" action="../send-mail.php" method="POST">
                                 <input type="hidden" name="form_type" value="Tour Booking Request">
                                 <input type="hidden" name="tour_name" value="4days Berber villages &amp; Toubkal">
-                                
-                                <div class="form-group mb-3">
-                                    <label for="book-name">Full Name</label>
-                                    <input type="text" id="book-name" class="form-control" name="name" placeholder="John Doe" required>
-                                </div>
-                                
-                                <div class="form-group mb-3">
-                                    <label for="book-email">Email Address</label>
-                                    <input type="email" id="book-email" class="form-control" name="email" placeholder="john@example.com" required>
+
+                                <!-- Row 1: Name + WhatsApp -->
+                                <div class="bk-row">
+                                    <div class="bk-field">
+                                        <label for="book-name"><i class="fas fa-user"></i> Name</label>
+                                        <input type="text" id="book-name" class="form-control" name="name" placeholder="Your name" required>
+                                    </div>
+                                    <div class="bk-field">
+                                        <label for="book-phone"><i class="fab fa-whatsapp"></i> WhatsApp</label>
+                                        <input type="tel" id="book-phone" class="form-control" name="phone" placeholder="+1 234 567 890" required>
+                                    </div>
                                 </div>
 
-                                <div class="form-group mb-3">
-                                    <label for="book-phone">WhatsApp Number</label>
-                                    <input type="tel" id="book-phone" class="form-control" name="phone" placeholder="+1 234 567 890" required>
+                                <!-- Row 2: Email (full width) -->
+                                <div class="bk-row">
+                                    <div class="bk-field bk-full">
+                                        <label for="book-email"><i class="far fa-envelope"></i> Email Address</label>
+                                        <input type="email" id="book-email" class="form-control" name="email" placeholder="you@example.com" required>
+                                    </div>
                                 </div>
-                                
-                                <div class="form-row mb-3 d-flex" style="gap: 15px;">
-                                    <div class="form-group flex-fill">
-                                        <label for="book-date">Travel Date</label>
+
+                                <!-- Row 3: Date + Travelers -->
+                                <div class="bk-row">
+                                    <div class="bk-field">
+                                        <label for="book-date"><i class="far fa-calendar-alt"></i> Travel Date</label>
                                         <input type="date" id="book-date" class="form-control" name="date" required>
                                     </div>
-                                    <div class="form-group flex-fill">
-                                        <label for="book-travelers">Travelers</label>
+                                    <div class="bk-field">
+                                        <label for="book-travelers"><i class="fas fa-users"></i> Travelers</label>
                                         <input type="number" id="book-travelers" class="form-control" name="travelers" min="1" value="2" required>
                                     </div>
                                 </div>
-                                
-                                                                <div class="form-group mb-3">
-                                    <label style="font-weight: 700; font-size: 0.95rem; color: #1E293B; margin-bottom: 10px; display: block;">Travel Style</label>
+
+                                <!-- Travel Style -->
+                                <div class="bk-style-group">
+                                    <label class="bk-style-label"><i class="fas fa-star"></i> Travel Style</label>
                                     <input type="hidden" name="travel_style" id="book-travel-style" value="Standard">
-                                    <div class="travel-style-options" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
-                                        <div class="travel-style-card active" onclick="selectTravelStyle(this, 'Standard')" style="border: 2px solid #D95D39; background: #FFF7F2; border-radius: 14px; padding: 12px 6px; text-align: center; cursor: pointer; transition: all 0.25s ease;">
-                                            <i class="fas fa-wallet" style="font-size: 1.35rem; color: #D95D39; margin-bottom: 6px; display: block;"></i>
-                                            <span style="font-weight: 700; font-size: 0.92rem; color: #1E293B; display: block;">Standard</span>
-                                            <small style="font-size: 0.72rem; color: #64748B; display: block; margin-top: 3px; line-height: 1.2;">Authentic &amp; Simple</small>
+                                    <div class="bk-style-options">
+                                        <div class="bk-style-card active" onclick="selectTravelStyle(this, 'Standard')">
+                                            <i class="fas fa-wallet"></i>
+                                            <span>Standard</span>
                                         </div>
-                                        <div class="travel-style-card" onclick="selectTravelStyle(this, 'Comfort')" style="border: 1px solid #E2E8F0; background: #FFFFFF; border-radius: 14px; padding: 12px 6px; text-align: center; cursor: pointer; transition: all 0.25s ease;">
-                                            <i class="fas fa-hotel" style="font-size: 1.35rem; color: #D95D39; margin-bottom: 6px; display: block;"></i>
-                                            <span style="font-weight: 700; font-size: 0.92rem; color: #1E293B; display: block;">Comfort</span>
-                                            <small style="font-size: 0.72rem; color: #64748B; display: block; margin-top: 3px; line-height: 1.2;">3-4★ Riads &amp; Camps</small>
+                                        <div class="bk-style-card" onclick="selectTravelStyle(this, 'Comfort')">
+                                            <i class="fas fa-hotel"></i>
+                                            <span>Comfort</span>
                                         </div>
-                                        <div class="travel-style-card" onclick="selectTravelStyle(this, 'Luxury')" style="border: 1px solid #E2E8F0; background: #FFFFFF; border-radius: 14px; padding: 12px 6px; text-align: center; cursor: pointer; transition: all 0.25s ease;">
-                                            <i class="fas fa-crown" style="font-size: 1.35rem; color: #D95D39; margin-bottom: 6px; display: block;"></i>
-                                            <span style="font-weight: 700; font-size: 0.92rem; color: #1E293B; display: block;">Luxury</span>
-                                            <small style="font-size: 0.72rem; color: #64748B; display: block; margin-top: 3px; line-height: 1.2;">5★ Riads &amp; Glamping</small>
+                                        <div class="bk-style-card" onclick="selectTravelStyle(this, 'Luxury')">
+                                            <i class="fas fa-crown"></i>
+                                            <span>Luxury</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group mb-4">
-                                    <label for="book-message">Additional Requests</label>
-                                    <textarea id="book-message" class="form-control" name="message" rows="3" placeholder="Dietary requirements, special needs..."></textarea>
+
+                                <!-- Message (optional, compact) -->
+                                <div class="bk-row">
+                                    <div class="bk-field bk-full">
+                                        <label for="book-message"><i class="fas fa-comment-alt"></i> Special Requests <span class="bk-optional">(optional)</span></label>
+                                        <textarea id="book-message" class="form-control" name="message" rows="2" placeholder="Dietary requirements, special needs..."></textarea>
+                                    </div>
                                 </div>
-                                
-                                <button type="submit" class="btn btn-primary btn-block w-100 py-3 submit-btn">
+
+                                <button type="submit" class="btn btn-primary btn-block w-100 submit-btn bk-submit-btn">
                                     <span>Request Booking</span> <i class="fas fa-arrow-right"></i>
                                 </button>
-                                <p class="form-note mt-3 text-center text-muted"><small><i class="fas fa-shield-alt"></i> No payment required now. Secure booking.</small></p>
+                                <p class="form-note mt-2 text-center"><small><i class="fas fa-shield-alt"></i> No payment required now. Secure booking.</small></p>
                             </form>
                         </div>
                     </div>
@@ -576,7 +584,7 @@
             <div class="footer-grid">
                 <!-- Col 1: About -->
                 <div class="footer-col about-col">
-                    <img src="../assets/images/logo.png" alt="Berber Magic Tours" class="footer-logo">
+                    <img src="/assets/images/logo.png" alt="Berber Magic Tours" class="footer-logo">
                     <p class="footer-desc">Experience the magic of Morocco through the eyes of Locals. Let us help you find a journey of a lifetime.</p>
                     <ul class="footer-contact-list">
                         <li><i class="fas fa-map-marker-alt"></i> <span>Douar Imlil Poste Asni 42152 Marrakech</span></li>
@@ -602,6 +610,7 @@
                         <li><a href="../trek-and-hike">Trek &amp; Hike</a></li>
                         <li><a href="../sahara-desert-tours">Sahara Desert Tours</a></li>
                         <li><a href="../morocco-tours">Morocco Tours</a></li>
+                        <li><a href="/blog">Blog</a></li>
                         <li><a href="../contact">Contact Us</a></li>
                     </ul>
                 </div>
@@ -742,7 +751,7 @@
     }
     </style>
 
-    <script src="../assets/js/main.js"></script>
+    <script src="/assets/js/main.js?v=1.1"></script>
     <script>
         // === Lightbox ===
         const galleryImages = [

@@ -11,7 +11,7 @@
     <meta property="og:image" content="https://berber-magic-tours.com/assets/images/logo.png">
     <meta property="og:url" content="https://berber-magic-tours.com/climb-mount-toubkal">
     <meta property="og:type" content="website">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Style+Script&display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@
         #header.header .mobile-menu-btn { color: var(--secondary) !important; }
 
         .category-hero {
-            background-image: url('tours/images/2-days-mount-toubkal/IMG-20190201-WA0115.jpg');
+            background-image: url('/tours/images/2-days-mount-toubkal/IMG-20190201-WA0115.jpg');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -122,6 +122,21 @@
             padding: 10px 22px;
             font-size: 0.9rem;
         }
+    
+        /* High Contrast White Title for Category Hero */
+        .category-hero h1, .category-hero .section-title, .page-header h1 {
+            color: #ffffff !important;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7) !important;
+        }
+        .category-hero .subtitle {
+            color: var(--primary) !important;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6) !important;
+        }
+        .category-hero .breadcrumb, .category-hero .breadcrumb a {
+            color: #ffffff !important;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
+        }
+        
     </style>
 </head>
 <body>
@@ -146,7 +161,7 @@
 
         <div class="container header-container">
             <div class="logo">
-                <a href="/"><img src="assets/images/logo.png" alt="Berber Magic Tours"></a>
+                <a href="/"><img src="/assets/images/logo.png" alt="Berber Magic Tours"></a>
             </div>
             
             <nav class="nav">
@@ -204,7 +219,7 @@
         <!-- Mobile Menu -->
     <div class="mobile-menu">
         <div class="mobile-menu-header">
-            <img src="assets/images/logo.png" alt="Logo" class="mobile-logo">
+            <img src="/assets/images/logo.png" alt="Logo" class="mobile-logo">
             <button class="close-menu-btn"><i class="fas fa-times"></i></button>
         </div>
         <ul class="mobile-nav-list">
@@ -276,7 +291,7 @@
                 
                 <!-- Tour Card: 2 days Mount Toubkal trek -->
                 <div class="tour-card-premium">
-                    <div class="tour-card-image" style="background-image: url('tours/images/2-days-mount-toubkal/IMG-20190201-WA0115.jpg');">
+                    <div class="tour-card-image" style="background-image: url('/tours/images/2-days-mount-toubkal/IMG-20190201-WA0115.jpg');">
                         <div class="tour-card-overlay"></div>
                         <div class="tour-cat-badge">Climb Mount Toubkal</div>
                     </div>
@@ -289,14 +304,14 @@
                         <p class="tour-card-text mb-4">Experience the thrilling winter ascent of Mount Toubkal equipped with crampons and ice axes under the guidance of certified winter experts.</p>
                         <div class="tour-card-footer">
                             <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
-                            <a href="tours/2-days-mount-toubkal" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                            <a href="/tours/2-days-mount-toubkal" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tour Card: 3 days Mount Toubkal trek -->
                 <div class="tour-card-premium">
-                    <div class="tour-card-image" style="background-image: url('tours/images/3-days-mount-toubkal/Climb-Toubkal.jpg');">
+                    <div class="tour-card-image" style="background-image: url('/tours/images/3-days-mount-toubkal/Climb-Toubkal.jpg');">
                         <div class="tour-card-overlay"></div>
                         <div class="tour-cat-badge">Climb Mount Toubkal</div>
                     </div>
@@ -309,14 +324,14 @@
                         <p class="tour-card-text mb-4">Ascend North Africa's highest peak (4,167m) over 2 days with experienced mountain guides, traditional Berber meals, and spectacular High Atlas mountain views.</p>
                         <div class="tour-card-footer">
                             <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
-                            <a href="tours/3-days-mount-toubkal" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                            <a href="/tours/3-days-mount-toubkal" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tour Card: 4 days Mount Toubkal Peaks -->
                 <div class="tour-card-premium">
-                    <div class="tour-card-image" style="background-image: url('tours/images/4-days-toubkal-peaks/Toubkal-peaks.webp');">
+                    <div class="tour-card-image" style="background-image: url('/tours/images/4-days-toubkal-peaks/Toubkal-peaks.webp');">
                         <div class="tour-card-overlay"></div>
                         <div class="tour-cat-badge">Climb Mount Toubkal</div>
                     </div>
@@ -329,14 +344,14 @@
                         <p class="tour-card-text mb-4">Enjoy an extended 3-day ascent of Mount Toubkal (4,167m) allowing better altitude acclimatization, panoramic ridge views, and comfortable refuge stays.</p>
                         <div class="tour-card-footer">
                             <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
-                            <a href="tours/4-days-toubkal-peaks" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                            <a href="/tours/4-days-toubkal-peaks" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tour Card: Mount Toubkal 3 days trek | Acclimatize better -->
                 <div class="tour-card-premium">
-                    <div class="tour-card-image" style="background-image: url('tours/images/mount-toubkal-3days-trek-acclimatization/Mount-Toubkal-Acclimatize.jpg');">
+                    <div class="tour-card-image" style="background-image: url('/tours/images/mount-toubkal-3days-trek-acclimatization/Mount-Toubkal-Acclimatize.jpg');">
                         <div class="tour-card-overlay"></div>
                         <div class="tour-cat-badge">Climb Mount Toubkal</div>
                     </div>
@@ -349,14 +364,14 @@
                         <p class="tour-card-text mb-4">Challenge yourself across multiple High Atlas summits including Toubkal, Ouanoukrim, and Aguelzim peak with expert mountain guides.</p>
                         <div class="tour-card-footer">
                             <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
-                            <a href="tours/mount-toubkal-3days-trek-acclimatization" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                            <a href="/tours/mount-toubkal-3days-trek-acclimatization" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tour Card: 5 days Mount Toubkal -->
                 <div class="tour-card-premium">
-                    <div class="tour-card-image" style="background-image: url('tours/images/toubkal-winter-climb/IMG-20190201-WA0141.jpg');">
+                    <div class="tour-card-image" style="background-image: url('/tours/images/toubkal-winter-climb/IMG-20190201-WA0141.jpg');">
                         <div class="tour-card-overlay"></div>
                         <div class="tour-cat-badge">Climb Mount Toubkal</div>
                     </div>
@@ -369,7 +384,7 @@
                         <p class="tour-card-text mb-4">Achieve maximum summit success on Mount Toubkal with an acclimatization day hike through Azzaden Valley before ascending the peak.</p>
                         <div class="tour-card-footer">
                             <div class="tour-price-tag"><i class="fas fa-shield-alt text-primary"></i> Guided Trek</div>
-                            <a href="tours/toubkal-winter-climb" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
+                            <a href="/tours/toubkal-winter-climb" class="btn-card-explore">Explore Tour <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -383,7 +398,7 @@
             <div class="footer-grid">
                 <!-- Col 1: About -->
                 <div class="footer-col about-col">
-                    <img src="assets/images/logo.png" alt="Berber Magic Tours" class="footer-logo">
+                    <img src="/assets/images/logo.png" alt="Berber Magic Tours" class="footer-logo">
                     <p class="footer-desc">Experience the magic of Morocco through the eyes of Locals. Let us help you find a journey of a lifetime.</p>
                     <ul class="footer-contact-list">
                         <li><i class="fas fa-map-marker-alt"></i> <span>Douar Imlil Poste Asni 42152 Marrakech</span></li>
@@ -409,7 +424,8 @@
                         <li><a href="trek-and-hike">Trek &amp; Hike</a></li>
                         <li><a href="sahara-desert-tours">Sahara Desert Tours</a></li>
                         <li><a href="morocco-tours">Morocco Tours</a></li>
-                        <li><a href="contact">Contact Us</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
                     </ul>
                 </div>
                 
@@ -454,13 +470,13 @@
                     <a href="terms-conditions">Terms &amp; Conditions</a>
                 </div>
             <div class="footer-signature">
-                Designed with <i class="fas fa-heart"></i> by <a href="https://mahdicreations.dev" target="_blank" rel="noopener">mahdicreations.dev</a>
+                Designed with <i class="fas fa-heart" style="color: #D95D39;"></i> by <a href="https://mahdicreations.dev" target="_blank" rel="noopener" style="color: #ffffff; text-decoration: underline;">mahdicreations.dev</a>
             </div>
             </div>
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script src="/assets/js/main.js?v=1.1"></script>
 </body>
 </html>
 

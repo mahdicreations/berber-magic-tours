@@ -45,6 +45,21 @@ for f in tour_files:
     <priority>0.8</priority>
   </url>""")
 
+blog_files = sorted([os.path.join('blog', f) for f in os.listdir('blog') if f.endswith('.html') and f != 'index.html'])
+
+for f in blog_files:
+    clean_path = f.replace('\\', '/')
+    if clean_path.endswith('.html'):
+        clean_path = clean_path[:-5]
+    url_entries.append(f"""  <url>
+    <loc>{domain}/{clean_path}</loc>
+    <lastmod>{today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>""")
+
+
+
 xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
 xml_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
 xml_content += '\n'.join(url_entries)
