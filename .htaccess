@@ -1,11 +1,59 @@
-RewriteEngine On
+<IfModule mod_rewrite.c>
+    RewriteEngine On
 
-# Redirect external .html requests to clean URLs (e.g. /contact.html -> /contact)
-RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
-RewriteRule ^ /%1 [R=301,L]
+    # =========================================================================
+    # 1. 301 Permanent Redirects for Berber Magic Tours (Old -> New Clean URLs)
+    # =========================================================================
+    
+    # --- Main Navigation Pages ---
+    RewriteRule ^about/?$ https://berber-magic-tours.com/about-us [R=301,L]
+    RewriteRule ^marrakech-day-trips/?$ https://berber-magic-tours.com/marrakech-day-trips [R=301,L]
+    RewriteRule ^trek-hike/?$ https://berber-magic-tours.com/trek-and-hike [R=301,L]
+    RewriteRule ^climb-mount-toubkal/?$ https://berber-magic-tours.com/climb-mount-toubkal [R=301,L]
+    RewriteRule ^berber-village-treks/?$ https://berber-magic-tours.com/berber-village-treks [R=301,L]
+    RewriteRule ^combine-atlas-sahara/?$ https://berber-magic-tours.com/combine-toubkal-and-villages [R=301,L]
+    RewriteRule ^biking-in-morocco/?$ https://berber-magic-tours.com/biking-in-morocco [R=301,L]
+    RewriteRule ^combine-atlas-mountains-desert/?$ https://berber-magic-tours.com/combine-atlas-mountains-and-desert [R=301,L]
+    RewriteRule ^combine-berber-villages-sahara/?$ https://berber-magic-tours.com/combine-berber-villages-and-sahara [R=301,L]
+    RewriteRule ^combine-toubkal-sahara/?$ https://berber-magic-tours.com/combine-toubkal-and-sahara [R=301,L]
+    RewriteRule ^sahara-desert-tours/?$ https://berber-magic-tours.com/sahara-desert-tours [R=301,L]
+    RewriteRule ^tours-from-marrakech/?$ https://berber-magic-tours.com/tours-from-marrakech [R=301,L]
+    RewriteRule ^tours-from-casablanca/?$ https://berber-magic-tours.com/tours-from-casablanca [R=301,L]
+    RewriteRule ^tours-from-fes/?$ https://berber-magic-tours.com/tours-from-fes [R=301,L]
+    RewriteRule ^morocco-tours/?$ https://berber-magic-tours.com/morocco-tours [R=301,L]
+    RewriteRule ^blog/?$ https://berber-magic-tours.com/ [R=301,L]
+    RewriteRule ^faqs/?$ https://berber-magic-tours.com/faq [R=301,L]
+    RewriteRule ^contact-us/?$ https://berber-magic-tours.com/contact [R=301,L]
 
-# Resolve extensionless URLs to .html files internally
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.+)$ $1.html [L,QSA]
+    # --- Tour Packages ---
+    RewriteRule ^package/2days-azzaden-valley/?$ https://berber-magic-tours.com/tours/2days-azzaden-valley [R=301,L]
+    RewriteRule ^package/2-days-mount-toubkal/?$ https://berber-magic-tours.com/tours/2-days-mount-toubkal [R=301,L]
+    RewriteRule ^package/overnight-in-atlas-mountains/?$ https://berber-magic-tours.com/tours/overnight-in-atlas-mountains [R=301,L]
+    RewriteRule ^package/mount-toubkal-3days-trek-acclimatization/?$ https://berber-magic-tours.com/tours/mount-toubkal-3days-trek-acclimatization [R=301,L]
+    RewriteRule ^package/3-days-atlas-mountains-trek-camel-ride/?$ https://berber-magic-tours.com/tours/3-days-atlas-mountains-trek-camel-ride [R=301,L]
+    RewriteRule ^package/5-days-atlas-mountain-trek/?$ https://berber-magic-tours.com/tours/5-days-atlas-mountain-trek [R=301,L]
+    RewriteRule ^package/3days-merzouga-desert/?$ https://berber-magic-tours.com/tours/3days-merzouga-desert [R=301,L]
+    RewriteRule ^package/4days-sahara-desert/?$ https://berber-magic-tours.com/tours/4days-sahara-desert [R=301,L]
+    RewriteRule ^package/4-days-sahara-desert-marrakech-to-fes/?$ https://berber-magic-tours.com/tours/4-days-sahara-desert-marrakech-to-fes [R=301,L]
+    RewriteRule ^package/5days-berber-villagessahara/?$ https://berber-magic-tours.com/tours/5days-berber-villagessahara [R=301,L]
+    RewriteRule ^package/7days-berber-villagessahara/?$ https://berber-magic-tours.com/tours/7days-berber-villagessahara [R=301,L]
+    RewriteRule ^package/6days-berber-villagessahara/?$ https://berber-magic-tours.com/tours/6days-berber-villagessahara [R=301,L]
+    RewriteRule ^package/best-of-morocco-holidays/?$ https://berber-magic-tours.com/tours/best-of-morocco-holidays [R=301,L]
+    RewriteRule ^package/6days-imperial-cities-desert/?$ https://berber-magic-tours.com/tours/6days-imperial-cities-desert [R=301,L]
+    RewriteRule ^package/5-days-imperial-cities/?$ https://berber-magic-tours.com/tours/5-days-imperial-cities [R=301,L]
+
+    # =========================================================================
+    # 2. Redirect external .html requests to clean URLs (e.g. /contact.html -> /contact)
+    # =========================================================================
+    RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+    RewriteRule ^ /%1 [R=301,L]
+
+    # =========================================================================
+    # 3. Resolve extensionless URLs to .html files internally
+    # =========================================================================
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.+)$ $1.html [L,QSA]
+
+</IfModule>

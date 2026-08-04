@@ -1,0 +1,14 @@
+# Robots.txt for Berber Magic Tours
+User-agent: *
+Allow: /
+
+# Disallow processing scripts and non-public endpoints
+Disallow: /send-mail.php
+Disallow: /tours/send-mail.php
+Disallow: /tours/debug-mail.php
+Disallow: /generate_tours.py
+Disallow: /generate_category_pages.py
+Disallow: /make_sitemap.py
+
+# Sitemap URL
+Sitemap: https://berber-magic-tours.com/sitemap.xml
