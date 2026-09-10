@@ -480,7 +480,7 @@ def generate_category_page(cat):
                     <div class="social-links mt-4">
                         <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+
                     </div>
                 </div>
                 

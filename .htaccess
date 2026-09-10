@@ -1,5 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    AddDefaultCharset UTF-8
 
     # =========================================================================
     # 1. 301 Permanent Redirects for Berber Magic Tours (Old -> New Clean URLs)
@@ -14,6 +15,8 @@
 
 
     # --- Tour Packages ---
+    # Azzaden Valley: legacy root URL → canonical /tours/ page (301)
+    RewriteRule ^2-days-azzaden-valley-trek/?$ https://berber-magic-tours.com/tours/2days-azzaden-valley [R=301,L]
     RewriteRule ^package/2days-azzaden-valley/?$ https://berber-magic-tours.com/tours/2days-azzaden-valley [R=301,L]
     RewriteRule ^package/2-days-mount-toubkal/?$ https://berber-magic-tours.com/tours/2-days-mount-toubkal [R=301,L]
     RewriteRule ^package/overnight-in-atlas-mountains/?$ https://berber-magic-tours.com/tours/overnight-in-atlas-mountains [R=301,L]

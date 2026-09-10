@@ -105,7 +105,7 @@ def clean_text(text):
     if not text:
         return ""
     text = text.replace('\ufffd', "'")
-    text = text.replace('â€™', "'").replace('â€"', "-").replace('â€œ', '"').replace('â€\x9d', '"')
+    text = text.replace('’', "'").replace('–', "-").replace('“', '"').replace('”', '"')
     
     replacements = [
         ('\u2019', "'"),
@@ -273,6 +273,84 @@ def find_tour_folders():
                 'info_txt': os.path.join(root, "tour-info.txt")
             })
     return tours
+
+def sanitize_for_json(text):
+    """Strip control characters (except tab/LF/CR) and collapse whitespace for safe JSON embedding."""
+    result = []
+    for ch in text:
+        cp = ord(ch)
+        if cp < 0x20 and ch not in ('\t', '\n', '\r'):
+            result.append(' ')
+        else:
+            result.append(ch)
+    import re as _re
+    return _re.sub(r'[ \t\r\n]+', ' ', ''.join(result)).strip()
+
+
+def generate_jsonld_block(title, description, canonical_url, image_web_src, duration_text, map_label):
+    """
+    Build a schema.org JSON-LD array (TouristTrip + BreadcrumbList) for a tour page.
+    Only uses data verifiably present on the page; no prices or ratings are added.
+    Returns a <script> tag string ready for injection into <head>.
+    """
+    import json as _json
+    import re as _re
+
+    BASE_URL = 'https://berber-magic-tours.com'
+    ORGANIZER_ID = f'{BASE_URL}/#organization'
+
+    # Derive absolute image URL
+    if image_web_src.startswith('http'):
+        abs_image = image_web_src
+    elif image_web_src.startswith('/'):
+        abs_image = BASE_URL + image_web_src
+    else:
+        abs_image = f'{BASE_URL}/tours/{image_web_src}'
+
+    # Parse ISO 8601 duration from e.g. '2 days/ 1 night'
+    duration_iso = None
+    if duration_text:
+        day_m = _re.search(r'(\d+)\s*day', duration_text, _re.IGNORECASE)
+        if day_m:
+            duration_iso = f'P{day_m.group(1)}D'
+
+    safe_name  = sanitize_for_json(title)
+    safe_desc  = sanitize_for_json(description)
+    safe_dep   = sanitize_for_json(map_label) if map_label else 'Marrakech, Morocco'
+
+    tour_block = {
+        '@context': 'https://schema.org',
+        '@type': 'TouristTrip',
+        '@id': f'{canonical_url}#trip',
+        'name': safe_name,
+        'description': safe_desc,
+        'url': canonical_url,
+        'image': abs_image,
+        'organizer': {'@type': 'TravelAgency', '@id': ORGANIZER_ID},
+        'touristType': 'Adventure tourists',
+        'provider': {'@type': 'TravelAgency', '@id': ORGANIZER_ID},
+    }
+    if duration_iso:
+        tour_block['duration'] = duration_iso
+    if safe_dep:
+        tour_block['departureLocation'] = {'@type': 'Place', 'name': safe_dep}
+
+    breadcrumb_block = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': f'{BASE_URL}/'},
+            {'@type': 'ListItem', 'position': 2, 'name': safe_name, 'item': canonical_url},
+        ]
+    }
+
+    json_str = _json.dumps([tour_block, breadcrumb_block], ensure_ascii=False, indent=2)
+    return (
+        '    <script type="application/ld+json">\n'
+        f'    {json_str}\n'
+        '    </script>\n'
+    )
+
 
 def generate_html(tour_info, tour_images, template_content, tour_folder_name):
     """Inject tour data into the master HTML template."""
@@ -484,6 +562,22 @@ def generate_html(tour_info, tour_images, template_content, tour_folder_name):
         f'                    </div>'
     )
     html = re.sub(r'<div class="tour-map-section mt-5">.*?</div>\s*</div>\s*(?=\n\s*<!-- Sidebar Content)', map_section_html + '\n\n                </div>', html, flags=re.DOTALL)
+
+    # 11. Inject schema.org JSON-LD (TouristTrip + BreadcrumbList) before </head>
+    #     Only inject if not already present (prevents duplicates on re-runs).
+    if 'application/ld+json' not in html:
+        slug = tour_folder_name
+        canonical_url = f'https://berber-magic-tours.com/tours/{slug}'
+        first_image_src = copied_images[0][1] if copied_images else '/assets/images/logo.png'
+        jsonld_script = generate_jsonld_block(
+            title=title,
+            description=description,
+            canonical_url=canonical_url,
+            image_web_src=first_image_src,
+            duration_text=duration,
+            map_label=map_label
+        )
+        html = re.sub(r'(</head>)', jsonld_script + r'\1', html, count=1, flags=re.IGNORECASE)
 
     return html
 
