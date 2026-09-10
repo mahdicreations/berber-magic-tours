@@ -399,7 +399,8 @@ img {
     list-style: none;
 }
 
-.dropdown:hover > .dropdown-menu {
+.dropdown:hover > .dropdown-menu,
+.dropdown:focus-within > .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -442,10 +443,19 @@ img {
     transform: translateX(10px);
 }
 
-.dropdown-submenu:hover > .dropdown-menu {
+.dropdown-submenu:hover > .dropdown-menu,
+.dropdown-submenu:focus-within > .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateX(0);
+}
+
+/* Visible keyboard focus ring for nav links */
+.nav-list a:focus-visible,
+.dropdown-menu a:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 3px;
 }
 
 .header-actions {
