@@ -75,7 +75,13 @@ document.addEventListener('DOMContentLoaded', () => {
         slides.forEach(slide => slide.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));
         
-        slides[index].classList.add('active');
+        let targetSlide = slides[index];
+        if (targetSlide.dataset.bg) {
+            targetSlide.style.backgroundImage = `url('${targetSlide.dataset.bg}')`;
+            targetSlide.removeAttribute('data-bg');
+        }
+        
+        targetSlide.classList.add('active');
         dots[index].classList.add('active');
         currentSlide = index;
     }

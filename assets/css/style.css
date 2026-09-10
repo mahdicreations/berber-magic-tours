@@ -3947,3 +3947,9 @@ img {
         font-size: 0.72rem;
     }
 }
+
+/* Fix for picture tags */
+picture {
+    display: contents;
+}
+

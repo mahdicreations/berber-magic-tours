@@ -433,9 +433,10 @@ def generate_html(tour_info, tour_images, template_content, tour_folder_name):
     # 5. Build Photo Strip Gallery HTML
     photo_strip_items = []
     for idx, (fname, web_src) in enumerate(copied_images):
+        webp_src = web_src.rsplit('.', 1)[0] + '.webp'
         photo_strip_items.append(
             f'                    <a href="{web_src}" class="photo-strip-item gallery-trigger" data-index="{idx}">\n'
-            f'                        <img src="{web_src}" alt="{escape(title)} Photo {idx + 1}">\n'
+            f'                        <picture><source srcset="{webp_src}" type="image/webp"><img src="{web_src}" alt="{escape(title)} Photo {idx + 1}" loading="lazy"></picture>\n'
             f'                        <div class="photo-strip-overlay"><i class="fas fa-expand-arrows-alt"></i></div>\n'
             f'                    </a>'
         )
