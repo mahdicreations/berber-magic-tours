@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/berbvifv/public_html/
+    - export DEPLOYPATH=/home/berbvifv/berber-magic-tours.com/
     - /bin/cp -R * $DEPLOYPATH
