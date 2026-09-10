@@ -60,7 +60,7 @@ p {
 
 a {
     text-decoration: none;
-    color: var(--primary);
+    color: var(--primary-dark);
     transition: var(--transition);
 }
 
@@ -108,7 +108,7 @@ img {
 .subtitle {
     display: block;
     font-family: var(--font-body);
-    color: var(--primary);
+    color: var(--primary-dark);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -151,7 +151,7 @@ img {
 }
 
 .btn-primary {
-    background-color: var(--primary);
+    background-color: var(--primary-dark);
     color: var(--white);
     box-shadow: 0 4px 15px rgba(211, 97, 53, 0.3);
 }
@@ -165,12 +165,12 @@ img {
 
 .btn-outline {
     background-color: transparent;
-    color: var(--primary);
+    color: var(--primary-dark);
     border: 2px solid var(--primary);
 }
 
 .btn-outline:hover {
-    background-color: var(--primary);
+    background-color: var(--primary-dark);
     color: var(--white);
 }
 
@@ -243,7 +243,7 @@ img {
 }
 
 .top-bar-left a:hover {
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 
 .top-bar-socials {
@@ -257,7 +257,7 @@ img {
 }
 
 .top-bar-socials a:hover {
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 
 /* TripAdvisor Icon Polyfill (Missing in FontAwesome 6 Free) */
@@ -361,7 +361,7 @@ img {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--primary);
+    background-color: var(--primary-dark);
     transition: var(--transition);
 }
 
@@ -373,7 +373,7 @@ img {
 .nav-list a:hover,
 .header.scrolled .nav-list a:hover,
 .header.scrolled .nav-list a.active {
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 
 .nav-list .dropdown:hover > a i {
@@ -428,7 +428,7 @@ img {
 
 .dropdown-menu li a:hover {
     background-color: rgba(211, 97, 53, 0.08);
-    color: var(--primary) !important;
+    color: var(--primary-dark) !important;
 }
 
 /* Nested Submenu (Level 2) */
@@ -578,7 +578,7 @@ img {
 
 .mobile-nav-list a.active,
 .mobile-nav-list a:hover {
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 
 /* Mobile Accordion Dropdown Grouping */
@@ -637,7 +637,7 @@ img {
 
 .mobile-submenu a:hover,
 .mobile-submenu a.active {
-    color: var(--primary) !important;
+    color: var(--primary-dark) !important;
 }
 
 .mobile-btn {
@@ -786,7 +786,7 @@ img {
 
 .slider-arrow:hover {
     background: var(--primary);
-    border-color: var(--primary);
+    border-color: var(--primary-dark);
     transform: scale(1.1);
 }
 
@@ -860,7 +860,7 @@ img {
     font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--primary);
+    color: var(--primary-dark);
     margin-bottom: 10px;
     font-weight: 700;
 }
@@ -939,7 +939,7 @@ img {
     position: absolute;
     bottom: 15%;
     left: -5%;
-    background-color: var(--primary);
+    background-color: var(--primary-dark);
     color: var(--white);
     padding: 12px 20px;
     border-radius: 10px;
@@ -1041,7 +1041,7 @@ img {
 
 .tour-badge i,
 .tour-card-badge i {
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 
 .tour-cat-badge {
@@ -1087,7 +1087,7 @@ img {
 
 .duration-pill {
     background: rgba(211, 97, 53, 0.1);
-    color: var(--primary);
+    color: var(--primary-dark);
     padding: 4px 12px;
     border-radius: 50px;
     font-weight: 600;
@@ -1095,7 +1095,7 @@ img {
 }
 
 .duration-pill i {
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 
 .tour-content h3,
@@ -1111,7 +1111,7 @@ img {
 
 .tour-card:hover .tour-card-title,
 .tour-card-premium:hover .tour-card-title {
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 
 .tour-content p,
@@ -1246,7 +1246,7 @@ img {
     width: 60px;
     height: 60px;
     background-color: var(--accent);
-    color: var(--primary);
+    color: var(--primary-dark);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1257,7 +1257,7 @@ img {
 }
 
 .features-list li:hover .feature-icon {
-    background-color: var(--primary);
+    background-color: var(--primary-dark);
     color: var(--white);
 }
 
@@ -1298,7 +1298,7 @@ img {
     font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--primary);
+    color: var(--primary-dark);
     margin-bottom: 10px;
     font-weight: 700;
 }
@@ -1339,7 +1339,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary);
+    color: var(--primary-dark);
     font-size: 1.3rem;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
@@ -1421,7 +1421,7 @@ img {
 .expedition-form select:focus,
 .expedition-form textarea:focus {
     outline: none;
-    border-color: var(--primary);
+    border-color: var(--primary-dark);
     background-color: var(--white);
     box-shadow: 0 0 0 4px rgba(211, 97, 53, 0.1);
 }
@@ -1461,13 +1461,13 @@ img {
 }
 
 .checkbox-btn input:checked + span {
-    border-color: var(--primary);
+    border-color: var(--primary-dark);
     background-color: rgba(211, 97, 53, 0.08);
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 
 .checkbox-btn span:hover {
-    border-color: var(--primary);
+    border-color: var(--primary-dark);
     background-color: rgba(211, 97, 53, 0.04);
 }
 
@@ -1529,16 +1529,16 @@ img {
 }
 
 .radio-card input:checked + .radio-card-content {
-    border-color: var(--primary);
+    border-color: var(--primary-dark);
     background-color: rgba(211, 97, 53, 0.08);
 }
 
 .radio-card input:checked + .radio-card-content i {
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 
 .radio-card-content:hover {
-    border-color: var(--primary);
+    border-color: var(--primary-dark);
 }
 
 /* Success Overlay */
@@ -1632,7 +1632,7 @@ img {
 .purpose-highlight {
     font-size: 1.15rem;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--primary-dark);
     margin-bottom: 35px;
     font-family: var(--font-heading);
 }
@@ -1673,7 +1673,7 @@ img {
 
 .team-member:hover .member-img-wrapper {
     transform: scale(1.05);
-    border-color: var(--primary);
+    border-color: var(--primary-dark);
     box-shadow: 0 4px 15px rgba(211, 97, 53, 0.2);
 }
 
@@ -1732,12 +1732,12 @@ img {
 }
 
 .faq-question:hover {
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 
 .faq-question i {
     font-size: 0.85rem;
-    color: var(--primary);
+    color: var(--primary-dark);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1823,7 +1823,7 @@ img {
 
 .author-info span {
     font-size: 0.85rem;
-    color: var(--primary);
+    color: var(--primary-dark);
     font-weight: 500;
 }
 
@@ -1885,7 +1885,7 @@ img {
 
 .info-icon {
     font-size: 2rem;
-    color: var(--primary);
+    color: var(--primary-dark);
     margin-bottom: 15px;
 }
 
@@ -1957,7 +1957,7 @@ img {
     bottom: 0;
     width: 40px;
     height: 3px;
-    background-color: var(--primary);
+    background-color: var(--primary-dark);
     border-radius: 2px;
 }
 
@@ -1986,7 +1986,7 @@ img {
 }
 
 .footer-contact-list i {
-    color: var(--primary);
+    color: var(--primary-dark);
     width: 20px;
     text-align: center;
     margin-top: 3px;
@@ -2019,7 +2019,7 @@ img {
 }
 
 .social-links a:hover {
-    background-color: var(--primary);
+    background-color: var(--primary-dark);
     transform: translateY(-3px);
 }
 
@@ -2038,7 +2038,7 @@ img {
 }
 
 .footer-links a:hover {
-    color: var(--primary);
+    color: var(--primary-dark);
     transform: translateX(5px);
 }
 
@@ -2144,7 +2144,7 @@ img {
 }
 
 .footer-legal a:hover {
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 /* ==========================================================================
    Tour Details Page Styles
@@ -2519,7 +2519,7 @@ img {
     gap: 6px;
 }
 .day-meta i {
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 
 /* Premium Lists */
@@ -2572,7 +2572,7 @@ img {
     border-color: rgba(211, 97, 53, 0.2);
 }
 .packing-item i {
-    color: var(--primary);
+    color: var(--primary-dark);
     font-size: 1.2rem;
     width: 24px; text-align: center;
 }
@@ -2617,7 +2617,7 @@ img {
 }
 .widget-body .form-control:focus {
     background: white;
-    border-color: var(--primary);
+    border-color: var(--primary-dark);
     box-shadow: 0 0 0 3px rgba(211, 97, 53, 0.1);
 }
 .submit-btn {
@@ -2762,7 +2762,7 @@ img {
 .packing-item:hover {
     background: var(--primary) !important;
     color: white !important;
-    border-color: var(--primary) !important;
+    border-color: var(--primary-dark) !important;
 }
 .packing-item:hover i, .packing-item:hover span {
     color: white !important;
@@ -2801,7 +2801,7 @@ img {
     box-shadow: none !important;
 }
 .widget-body .form-control:focus {
-    border-bottom-color: var(--primary) !important;
+    border-bottom-color: var(--primary-dark) !important;
 }
 
 .submit-btn {
@@ -2868,7 +2868,7 @@ img {
 
 .widget-title {
     font-size: 2rem !important;
-    color: var(--primary) !important;
+    color: var(--primary-dark) !important;
     margin-bottom: 0.5rem !important;
     font-weight: 700;
 }
@@ -3321,7 +3321,7 @@ img {
 }
 
 .map-info-strip i {
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 
 @media (max-width: 768px) {
@@ -3516,7 +3516,7 @@ img {
 }
 
 .map-info-strip i {
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 
 @media (max-width: 768px) {
@@ -3679,7 +3679,7 @@ img {
     color: rgba(255, 255, 255, 0.55);
 }
 .footer-signature a {
-    color: var(--primary);
+    color: var(--primary-dark);
     font-weight: 600;
     text-decoration: none;
     transition: var(--transition);
@@ -3738,7 +3738,7 @@ img {
     .mobile-sticky-badge {
         font-size: 0.7rem;
         font-weight: 700;
-        color: var(--primary);
+        color: var(--primary-dark);
         text-transform: uppercase;
         letter-spacing: 0.8px;
         display: flex;
@@ -3825,7 +3825,7 @@ img {
 }
 
 .tour-booking-form .bk-field label i {
-    color: var(--primary);
+    color: var(--primary-dark);
     font-size: 0.78rem;
     width: 14px;
 }
@@ -3845,7 +3845,7 @@ img {
 
 .tour-booking-form .form-control:focus {
     outline: none;
-    border-color: var(--primary);
+    border-color: var(--primary-dark);
     box-shadow: 0 0 0 3px rgba(217, 93, 57, 0.1);
     background: #fff;
 }
@@ -3867,7 +3867,7 @@ img {
 }
 
 .tour-booking-form .bk-style-label i {
-    color: var(--primary);
+    color: var(--primary-dark);
     font-size: 0.78rem;
     width: 14px;
 }
@@ -3906,13 +3906,13 @@ img {
 }
 
 .tour-booking-form .bk-style-card:hover {
-    border-color: var(--primary);
+    border-color: var(--primary-dark);
     background: #FFF7F2;
 }
 
 .tour-booking-form .bk-style-card:hover i,
 .tour-booking-form .bk-style-card:hover span {
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 
 .tour-booking-form .bk-style-card.active {
@@ -3922,7 +3922,7 @@ img {
 
 .tour-booking-form .bk-style-card.active i,
 .tour-booking-form .bk-style-card.active span {
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 
 /* Optional label */

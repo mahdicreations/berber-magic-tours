@@ -654,6 +654,40 @@ document.addEventListener('click', function(e) {
         var styleName = card.textContent ? card.textContent.trim() : '';
         selectTravelStyle(card, styleName);
     }
+
+    // Mobile Submenu Toggle (A11y)
+    const dropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const li = this.closest('li.mobile-dropdown');
+            const icon = this.querySelector('i');
+            
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+            
+            if (isExpanded) {
+                li.classList.remove('open');
+                if(icon) { icon.classList.remove('fa-minus'); icon.classList.add('fa-plus'); }
+            } else {
+                li.classList.add('open');
+                if(icon) { icon.classList.remove('fa-plus'); icon.classList.add('fa-minus'); }
+            }
+        });
+    });
+
+    // Slider Dot Click Support
+    const sliderDots = document.querySelectorAll('.slider-dots .dot');
+    sliderDots.forEach(dot => {
+        dot.addEventListener('click', function() {
+            const index = parseInt(this.getAttribute('data-index'), 10);
+            if(typeof changeSlide === 'function') {
+                changeSlide(index);
+                // Restart timer if needed, but changeSlide handles the visual change
+            }
+        });
+    });
 });
+
 
 
