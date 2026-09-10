@@ -5,25 +5,14 @@
     # 1. 301 Permanent Redirects for Berber Magic Tours (Old -> New Clean URLs)
     # =========================================================================
     
-    # --- Main Navigation Pages ---
+    # --- Main Navigation Pages (Old URLs -> New Slugs) ---
     RewriteRule ^about/?$ https://berber-magic-tours.com/about-us [R=301,L]
-    RewriteRule ^marrakech-day-trips/?$ https://berber-magic-tours.com/marrakech-day-trips [R=301,L]
     RewriteRule ^trek-hike/?$ https://berber-magic-tours.com/trek-and-hike [R=301,L]
-    RewriteRule ^climb-mount-toubkal/?$ https://berber-magic-tours.com/climb-mount-toubkal [R=301,L]
-    RewriteRule ^berber-village-treks/?$ https://berber-magic-tours.com/berber-village-treks [R=301,L]
     RewriteRule ^combine-atlas-sahara/?$ https://berber-magic-tours.com/combine-toubkal-and-villages [R=301,L]
-    RewriteRule ^biking-in-morocco/?$ https://berber-magic-tours.com/biking-in-morocco [R=301,L]
-    RewriteRule ^combine-atlas-mountains-desert/?$ https://berber-magic-tours.com/combine-atlas-mountains-and-desert [R=301,L]
-    RewriteRule ^combine-berber-villages-sahara/?$ https://berber-magic-tours.com/combine-berber-villages-and-sahara [R=301,L]
-    RewriteRule ^combine-toubkal-sahara/?$ https://berber-magic-tours.com/combine-toubkal-and-sahara [R=301,L]
-    RewriteRule ^sahara-desert-tours/?$ https://berber-magic-tours.com/sahara-desert-tours [R=301,L]
-    RewriteRule ^tours-from-marrakech/?$ https://berber-magic-tours.com/tours-from-marrakech [R=301,L]
-    RewriteRule ^tours-from-casablanca/?$ https://berber-magic-tours.com/tours-from-casablanca [R=301,L]
-    RewriteRule ^tours-from-fes/?$ https://berber-magic-tours.com/tours-from-fes [R=301,L]
-    RewriteRule ^morocco-tours/?$ https://berber-magic-tours.com/morocco-tours [R=301,L]
     RewriteRule ^blog/?$ https://berber-magic-tours.com/ [R=301,L]
     RewriteRule ^faqs/?$ https://berber-magic-tours.com/faq [R=301,L]
     RewriteRule ^contact-us/?$ https://berber-magic-tours.com/contact [R=301,L]
+
 
     # --- Tour Packages ---
     RewriteRule ^package/2days-azzaden-valley/?$ https://berber-magic-tours.com/tours/2days-azzaden-valley [R=301,L]
