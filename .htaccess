@@ -47,4 +47,7 @@
     RewriteCond %{REQUEST_FILENAME}.html -f
     RewriteRule ^(.+)$ $1.html [L,QSA]
 
+    # Handle 404 errors
+    ErrorDocument 404 /404.html
+
 </IfModule>
