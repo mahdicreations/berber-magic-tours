@@ -30,11 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 //        SetEnv BMT_SMTP_PASS "your-new-password-here"
 // -------------------------------------------------------------------------
 $smtp_user = 'info@berber-magic-tours.com';
-$smtp_pass = getenv('BMT_SMTP_PASS');   // set via SetEnv in .htaccess
+$smtp_pass = '@berber-magic-tours2026';
 $to_email  = 'berbermagictours@gmail.com';
 
 if (empty($smtp_pass)) {
-    // Fall back to PHP mail() if env var is not available
     $smtp_pass = null;
 }
 

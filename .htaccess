@@ -44,7 +44,7 @@
     # (or use cPanel → MultiPHP INI Editor to set it there instead).
     # IMPORTANT: Never commit the real password to Git.
     # =========================================================================
-    SetEnv BMT_SMTP_PASS "@berber-magic-tours2026"
+    # SetEnv BMT_SMTP_PASS "YOUR-NEW-PASSWORD-HERE"
 
     # =========================================================================
     # Security Headers
