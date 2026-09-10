@@ -71,3 +71,72 @@
     ErrorDocument 404 /404.html
 
 </IfModule>
+
+# =============================================================================
+# HTTP Caching Policy
+# =============================================================================
+
+<IfModule mod_headers.c>
+
+    # -------------------------------------------------------------------------
+    # HTML pages: revalidate on every request so content changes are seen fast.
+    # -------------------------------------------------------------------------
+    <FilesMatch "\.(html|htm)$">
+        Header always set Cache-Control "no-cache, must-revalidate"
+        Header always set Vary "Accept-Encoding"
+    </FilesMatch>
+
+    # -------------------------------------------------------------------------
+    # Versioned CSS / JS (references now include ?v=<hash>).
+    # Apache ignores query strings for FilesMatch, so we use long max-age and
+    # let the version query string act as the cache-buster.
+    # -------------------------------------------------------------------------
+    <FilesMatch "\.(css|js)$">
+        Header always set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # -------------------------------------------------------------------------
+    # Fonts: immutable – never change once published.
+    # -------------------------------------------------------------------------
+    <FilesMatch "\.(woff2|woff|ttf|eot|otf)$">
+        Header always set Cache-Control "public, max-age=31536000, immutable"
+        Header always set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+
+    # -------------------------------------------------------------------------
+    # Images: long cache; use versioned URLs or filename changes to bust.
+    # -------------------------------------------------------------------------
+    <FilesMatch "\.(webp|avif|jpg|jpeg|png|gif|svg|ico)$">
+        Header always set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+
+    # -------------------------------------------------------------------------
+    # JSON / XML (sitemap, schema): short-lived so crawlers pick up changes.
+    # -------------------------------------------------------------------------
+    <FilesMatch "\.(xml|json)$">
+        Header always set Cache-Control "public, max-age=86400"
+    </FilesMatch>
+
+    # -------------------------------------------------------------------------
+    # PHP form responses: must never be cached.
+    # -------------------------------------------------------------------------
+    <FilesMatch "\.php$">
+        Header always set Cache-Control "no-store, private"
+    </FilesMatch>
+
+</IfModule>
+
+# =============================================================================
+# Compression – Brotli preferred, gzip fallback
+# =============================================================================
+
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/javascript application/javascript application/json image/svg+xml text/xml text/plain font/woff2 font/woff
+    BrotliCompressionQuality 6
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml text/xml text/plain font/woff2 font/woff
+    # Skip already-compressed formats
+    SetEnvIfNoCase Request_URI \.(webp|avif|jpg|jpeg|png|gif|gz|br)$ no-gzip dont-vary
+</IfModule>
