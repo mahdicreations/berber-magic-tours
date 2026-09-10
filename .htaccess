@@ -3,6 +3,50 @@
     AddDefaultCharset UTF-8
 
     # =========================================================================
+    # Directory Indexing — always OFF sitewide
+    # =========================================================================
+    Options -Indexes
+
+    # =========================================================================
+    # Access Control — block dev/scratch/archive files from public access
+    # =========================================================================
+    # Python scripts (generator, audit, scratch)
+    <FilesMatch "\.(py|ps1)$">
+        <IfModule mod_authz_core.c>
+            Require all denied
+        </IfModule>
+        <IfModule !mod_authz_core.c>
+            Order deny,allow
+            Deny from all
+        </IfModule>
+    </FilesMatch>
+
+    # Archive / large data files
+    <FilesMatch "\.(zip|tar|tar\.gz|bz2|rar|7z|sql|bak|log|env)$">
+        <IfModule mod_authz_core.c>
+            Require all denied
+        </IfModule>
+        <IfModule !mod_authz_core.c>
+            Order deny,allow
+            Deny from all
+        </IfModule>
+    </FilesMatch>
+
+    # Block direct access to the entire /scratch/ directory
+    RewriteRule ^scratch(/.*)?$ - [F,L]
+
+    # Block .git directory traversal
+    RewriteRule ^\.git(/.*)?$ - [F,L]
+
+    # =========================================================================
+    # SMTP Credential — set this after rotating the email account password.
+    # Replace YOUR-NEW-PASSWORD-HERE with the real password in cPanel File Manager
+    # (or use cPanel → MultiPHP INI Editor to set it there instead).
+    # IMPORTANT: Never commit the real password to Git.
+    # =========================================================================
+    SetEnv BMT_SMTP_PASS "@berber-magic-tours2026"
+
+    # =========================================================================
     # Security Headers
     # =========================================================================
     <IfModule mod_headers.c>
