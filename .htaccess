@@ -9,7 +9,6 @@
     RewriteRule ^about/?$ https://berber-magic-tours.com/about-us [R=301,L]
     RewriteRule ^trek-hike/?$ https://berber-magic-tours.com/trek-and-hike [R=301,L]
     RewriteRule ^combine-atlas-sahara/?$ https://berber-magic-tours.com/combine-toubkal-and-villages [R=301,L]
-    RewriteRule ^blog/?$ https://berber-magic-tours.com/ [R=301,L]
     RewriteRule ^faqs/?$ https://berber-magic-tours.com/faq [R=301,L]
     RewriteRule ^contact-us/?$ https://berber-magic-tours.com/contact [R=301,L]
 
