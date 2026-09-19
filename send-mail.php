@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // -------------------------------------------------------------------------
 $smtp_user = 'info@berber-magic-tours.com';
 $smtp_pass = '@berber-magic-tours2026';
-$to_email  = 'berbermagictours@gmail.com';
+$to_email  = 'javarx@gmail.com';
 
 if (empty($smtp_pass)) {
     $smtp_pass = null;
